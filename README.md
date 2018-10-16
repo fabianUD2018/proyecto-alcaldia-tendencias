@@ -5,4 +5,5 @@
 * luis mendez
 * Rodrigo niño
 
+** Crear una rama por cada uno para mantener los cambios separados, no trabajar en el master  **
 *universidad distrital francisco jose de caldas*
