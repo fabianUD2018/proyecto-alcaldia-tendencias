@@ -6,10 +6,12 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<section class ="footer">
+
+
+<div class ="footer">
   
   
-  <ul class="mt-5">
+  <ul >
       <li> <strong>Realizado por</strong></li>
       <li>Fabian Herrera</li>
       <li> Rodrigo niño</li>
@@ -17,4 +19,4 @@
       <li>Universidad Distrital.</li>
   </ul>
  
-</section>
+</div>

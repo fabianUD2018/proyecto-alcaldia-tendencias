@@ -15,10 +15,17 @@ public class Joven extends Persona {
 	private String tipoE;
 	private Plantel m_Plantel;
 
-	public Joven(){
+    public Joven(String curso, String educacion, String jornada, Plantel plantel, String tipoE, Plantel m_Plantel) {
+        this.curso = curso;
+        this.educacion = educacion;
+        this.jornada = jornada;
+        this.plantel = plantel;
+        this.tipoE = tipoE;
+        this.m_Plantel = m_Plantel;
+    }
 
-	}
-
+	
+        
 	public void finalize() throws Throwable {
 		super.finalize();
 	}
