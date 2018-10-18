@@ -4,6 +4,8 @@
     Author     : fcher
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="clases.Modelo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -63,12 +65,22 @@
             <label for ="tipo_estudiante">Tipo Estudiante</label>
             <input class ="form-control" name ="tipo_estudiante" type ="text">
         </div>
+          <!-- Codigo para obtener los planteles con el uso del modelo-->
+          <%  Modelo m = (Modelo)application.getAttribute("modelo");
+              System.out.println("flag2");
+              ArrayList<String> list = m.obtenerPlanteles();
+              
+          %>
         <div class ="form-group">
             <label for ="plantel"> Plantel </label>
-            <input class ="form-control" name ="plantel" type ="text">
+            <select class ="form-control">
+                <% for (String s : list) {
+                out.println("<option >" + s +"</option>");
+                
+               } %>
+            </select>
         </div>
-          <button type ="submit"> Guardar </button>
-          
+          <input class ="btn btn-primary col" type ="submit" name ="accion" value ="Guardar"> 
     </div>
   </div>
   <div class="card">

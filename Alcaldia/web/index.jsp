@@ -1,3 +1,4 @@
+<%@page import="clases.Modelo"%>
 <%@page import="java.sql.ResultSet"%>
 <!DOCTYPE html>
 <!--
@@ -6,6 +7,12 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
+    <% // Para fijar una variable en un jsp
+   application.setAttribute("modelo", new Modelo());
+
+   // Para leerla en otro o el mismo JSP
+  
+%>
     <head>
         <title>Home</title>
         <meta charset="UTF-8">

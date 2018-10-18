@@ -1,9 +1,5 @@
 package clases;
 
-
-
-
-
 /**
  * @author fcher
  * @version 1.0
@@ -11,58 +7,65 @@ package clases;
  */
 public class Adulto extends Persona {
 
-	private String cargo;
-	private Empresa empresa;
-	private String jornada;
-	private int sueldo;
-	private Empresa m_Empresa;
+    private String cargo;
+    private Empresa empresa;
+    private String jornada;
+    private String sueldo;
 
-	public Adulto(){
+    public Adulto(int codigo, int documento, String fNacimiento, String lugar, String nombre, String cargo, String jornada, String sueldo) {
+        super(codigo, documento, fNacimiento, lugar, nombre);
+        this.cargo = cargo;
+        this.jornada = jornada;
+        this.sueldo = sueldo;
+        this.empresa = null;
+    }
 
-	}
+    public String getCargo() {
+        return cargo;
+    }
 
-	public void finalize() throws Throwable {
-		super.finalize();
-	}
+    public Empresa getEmpresa() {
+        return empresa;
+    }
 
-	public String getDatos(){
-		return "";
-	}
+    public String getJornada() {
+        return jornada;
+    }
 
-	public Empresa getEmpresa(){
-		return m_Empresa;
-	}
+    public String getSueldo() {
+        return sueldo;
+    }
 
-	public boolean hasNext(){
-		return false;
-	}
+    public void finalize() throws Throwable {
+        super.finalize();
+    }
 
-	public Persona next(){
-		return null;
-	}
+    public String getDatos() {
+        return "";
+    }
 
-	/**
-	 * 
-	 * @param p
-	 */
-	public boolean remove(Persona p){
-		return false;
-	}
+    public boolean hasNext() {
+        return false;
+    }
 
-	/**
-	 * 
-	 * @param param
-	 */
-	public void  setDatos(String param){
+    public Persona next() {
+        return null;
+    }
 
-	}
+    /**
+     *
+     * @param p
+     */
+    public boolean remove(Persona p) {
+        return false;
+    }
 
-	/**
-	 * 
-	 * @param newVal
-	 */
-	public void setEmpresa(Empresa newVal){
-		m_Empresa = newVal;
-	}
+    /**
+     *
+     * @param param
+     */
+    public void setDatos(String param) {
+
+    }
 
 }

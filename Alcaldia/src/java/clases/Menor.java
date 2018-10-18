@@ -1,5 +1,7 @@
 package clases;
 
+import java.util.ArrayList;
+
 
 /**
  * @author fcher
@@ -8,14 +10,16 @@ package clases;
  */
 public class Menor extends Persona {
 
-	private Enfermedad enfermedades;
+	private ArrayList<Enfermedad> enfermedades;
 	private Guarderia guarderia;
-	private Enfermedad m_Enfermedad;
-	private Guarderia m_Guarderia;
 
-	public Menor(){
+    public Menor(int codigo, int documento, String fNacimiento, String lugar, String nombre,  Guarderia g) {
+        super(codigo, documento, fNacimiento, lugar, nombre);
+        this.enfermedades=new ArrayList<>();
+        this.guarderia=g;
+    }
 
-	}
+	
 
 	public void finalize() throws Throwable {
 		super.finalize();
@@ -25,14 +29,7 @@ public class Menor extends Persona {
 		return "";
 	}
 
-	public Enfermedad getEnfermedad(){
-		return m_Enfermedad;
-	}
-
-	public Guarderia getGuarderia(){
-		return m_Guarderia;
-	}
-
+	
 	public boolean hasNext(){
 		return false;
 	}
@@ -57,20 +54,15 @@ public class Menor extends Persona {
 
 	}
 
-	/**
-	 * 
-	 * @param newVal
-	 */
-	public void setEnfermedad(Enfermedad newVal){
-		m_Enfermedad = newVal;
-	}
+    public void addEnfermedad(Enfermedad temp) {
+        this.enfermedades.add(temp);
+    }
 
-	/**
-	 * 
-	 * @param newVal
-	 */
-	public void setGuarderia(Guarderia newVal){
-		m_Guarderia = newVal;
-	}
+    public ArrayList<Enfermedad> getEnfermedades() {
+        return enfermedades;
+    }
+    
+
+	
 
 }

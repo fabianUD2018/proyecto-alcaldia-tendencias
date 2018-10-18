@@ -36,6 +36,7 @@ public class GestorBaseDatos {
         public static GestorBaseDatos obtenerGestor(){
             if (gestor ==null){
                 gestor = new GestorBaseDatos();
+                
             }
                 return gestor;
             
@@ -49,6 +50,7 @@ public class GestorBaseDatos {
             Class.forName("org.postgresql.Driver");
             conn = DriverManager.getConnection(urlDatabase, "postgres", "Hmdemo123");
             st = conn.createStatement();
+            
         } catch (Exception e) {
             System.out.println("Ocurrio un error : " + e.getMessage());
         }
@@ -66,7 +68,9 @@ public class GestorBaseDatos {
 	 */
 	public void create(String sql){
 		 ResultSet rs = null;
+                
             try {
+                 
                 rs = st.executeQuery(sql);
             } catch (SQLException ex) {
                 //Logger.getLogger(GestorBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
@@ -98,10 +102,13 @@ public class GestorBaseDatos {
 	public ResultSet read(String sql){
              ResultSet rs = null;
             try {
-                rs = st.executeQuery(sql);
+                Statement temp = conn.createStatement();
+                rs = temp.executeQuery(sql);
+                
             } catch (SQLException ex) {
                 Logger.getLogger(GestorBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
 		return rs;
 	}
 

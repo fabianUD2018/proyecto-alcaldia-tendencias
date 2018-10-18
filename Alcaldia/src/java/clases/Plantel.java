@@ -11,9 +11,12 @@ public class Plantel extends Institucion {
 	private String representante;
 	private String tipo_plantel;
 
-	public Plantel(){
+    public Plantel(String representante, String tipo_plantel) {
+        this.representante = representante;
+        this.tipo_plantel = tipo_plantel;
+    }
 
-	}
+	
 
 	public void finalize() throws Throwable {
 		super.finalize();

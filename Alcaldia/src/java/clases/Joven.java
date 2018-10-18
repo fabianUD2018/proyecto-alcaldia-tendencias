@@ -13,15 +13,35 @@ public class Joven extends Persona {
 	private String jornada;
 	private Plantel plantel;
 	private String tipoE;
-	private Plantel m_Plantel;
-
-    public Joven(String curso, String educacion, String jornada, Plantel plantel, String tipoE, Plantel m_Plantel) {
+	
+    public Joven(int codigo, int documento, String fNacimiento, String lugar, String nombre, String curso, String educacion, String jornada, Plantel plantel, String tipoE) {
+        super( codigo,  documento,  fNacimiento, lugar, nombre);
         this.curso = curso;
         this.educacion = educacion;
         this.jornada = jornada;
-        this.plantel = plantel;
+        //this.plantel = plantel;
         this.tipoE = tipoE;
-        this.m_Plantel = m_Plantel;
+        
+    }
+
+    public String getCurso() {
+        return curso;
+    }
+
+    public String getEducacion() {
+        return educacion;
+    }
+
+    public String getJornada() {
+        return jornada;
+    }
+
+    public Plantel getPlantel() {
+        return plantel;
+    }
+
+    public String getTipoE() {
+        return tipoE;
     }
 
 	
@@ -34,9 +54,7 @@ public class Joven extends Persona {
 		return "";
 	}
 
-	public Plantel getPlantel(){
-		return m_Plantel;
-	}
+	
 
 	public boolean hasNext(){
 		return false;
@@ -62,12 +80,6 @@ public class Joven extends Persona {
 
 	}
 
-	/**
-	 * 
-	 * @param newVal
-	 */
-	public void setPlantel(Plantel newVal){
-		m_Plantel = newVal;
-	}
+	
 
 }

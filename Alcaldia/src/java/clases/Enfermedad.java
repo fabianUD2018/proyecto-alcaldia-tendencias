@@ -7,13 +7,32 @@ package clases;
  * @created 16-oct.-2018 4:11:56 p. m.
  */
 public class Enfermedad {
+        private String nombre;
+	private String descripcion;
 
-	private String duracion;
-	private String nombre;
+    public Enfermedad(String nombre, String d) {
+        this.nombre = nombre;
+        this.descripcion = d;
+    }
 
-	public Enfermedad(){
+    public String getNombre() {
+        return nombre;
+    }
 
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+	
+        
+	
 
 	public void finalize() throws Throwable {
 

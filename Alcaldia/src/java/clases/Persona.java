@@ -16,9 +16,15 @@ public abstract class Persona implements Iterator {
 	private String lugar;
 	private String nombre;
 
-	public Persona(){
+    public Persona(int codigo, int documento, String fNacimiento, String lugar, String nombre) {
+        this.codigo = codigo;
+        this.documento = documento;
+        this.fNacimiento = fNacimiento;
+        this.lugar = lugar;
+        this.nombre = nombre;
+    }
 
-	}
+	
 
         @Override
 	public void finalize() throws Throwable {
@@ -39,6 +45,27 @@ public abstract class Persona implements Iterator {
 		return null;
 	}
 
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public int getDocumento() {
+        return documento;
+    }
+
+    public String getfNacimiento() {
+        return fNacimiento;
+    }
+
+    public String getLugar() {
+        return lugar;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+        
 	/**
 	 * 
 	 * @param p
