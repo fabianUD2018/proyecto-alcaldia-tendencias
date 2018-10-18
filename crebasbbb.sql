@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      PostgreSQL 8                                 */
-/* Created on:     16/10/2018 12:34:09 p. m.                    */
+/* Created on:     18/10/2018 2:40:08 p. m.                     */
 /*==============================================================*/
 
 
@@ -129,16 +129,16 @@ create table ADULTO (
    CARGO                VARCHAR(30)          null,
    JORNADA              VARCHAR(30)          null,
    SUELDO               VARCHAR(30)          null,
-   ID_ADUTLO            INT4                 not null,
+   ID_ADULTO            INT4                 not null,
    ID_PERSONA           INT4                 null,
-   constraint PK_ADULTO primary key (ID_ADUTLO)
+   constraint PK_ADULTO primary key (ID_ADULTO)
 );
 
 /*==============================================================*/
 /* Index: ADULTO_PK                                             */
 /*==============================================================*/
 create unique index ADULTO_PK on ADULTO (
-ID_ADUTLO
+ID_ADULTO
 );
 
 /*==============================================================*/
@@ -152,16 +152,16 @@ ID_PERSONA
 /* Table: ADULTO_EMPRESA                                        */
 /*==============================================================*/
 create table ADULTO_EMPRESA (
-   ID_ADUTLO            INT4                 not null,
+   ID_ADULTO            INT4                 not null,
    ID_EMPRESA           INT4                 not null,
-   constraint PK_ADULTO_EMPRESA primary key (ID_ADUTLO, ID_EMPRESA)
+   constraint PK_ADULTO_EMPRESA primary key (ID_ADULTO, ID_EMPRESA)
 );
 
 /*==============================================================*/
 /* Index: ADULTO_EMPRESA_PK                                     */
 /*==============================================================*/
 create unique index ADULTO_EMPRESA_PK on ADULTO_EMPRESA (
-ID_ADUTLO,
+ID_ADULTO,
 ID_EMPRESA
 );
 
@@ -176,7 +176,7 @@ ID_EMPRESA
 /* Index: ADULTO_EMPRESA_FK                                     */
 /*==============================================================*/
 create  index ADULTO_EMPRESA_FK on ADULTO_EMPRESA (
-ID_ADUTLO
+ID_ADULTO
 );
 
 /*==============================================================*/
@@ -305,7 +305,7 @@ ID_INSTITUCION
 /*==============================================================*/
 create table ENFERMEDADES (
    ID_ENFERMEDAD        INT4                 not null,
-   "DESC"               VARCHAR(50)          not null,
+   DESCRIPCION          VARCHAR(50)          not null,
    constraint PK_ENFERMEDADES primary key (ID_ENFERMEDAD)
 );
 
@@ -614,8 +614,8 @@ alter table ADULTO
       on delete restrict on update restrict;
 
 alter table ADULTO_EMPRESA
-   add constraint FK_ADULTO_E_ADULTO_EM_ADULTO foreign key (ID_ADUTLO)
-      references ADULTO (ID_ADUTLO)
+   add constraint FK_ADULTO_E_ADULTO_EM_ADULTO foreign key (ID_ADULTO)
+      references ADULTO (ID_ADULTO)
       on delete restrict on update restrict;
 
 alter table ADULTO_EMPRESA
