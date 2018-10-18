@@ -66,18 +66,11 @@
             <input class ="form-control" name ="tipo_estudiante" type ="text">
         </div>
           <!-- Codigo para obtener los planteles con el uso del modelo-->
-          <%  Modelo m = (Modelo)application.getAttribute("modelo");
-              System.out.println("flag2");
-              ArrayList<String> list = m.obtenerPlanteles();
-              
-          %>
+         
         <div class ="form-group">
             <label for ="plantel"> Plantel </label>
             <select class ="form-control">
-                <% for (String s : list) {
-                out.println("<option >" + s +"</option>");
-                
-               } %>
+               
             </select>
         </div>
           <input class ="btn btn-primary col" type ="submit" name ="accion" value ="Guardar"> 
