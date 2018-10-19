@@ -34,12 +34,26 @@ public class Modelo {
         db = GestorBaseDatos.obtenerGestor();
         db.realizaConexion();
         cargarEnfermedades();
-        cargarPersonasJovenes();
-        cargarPersonasMenor();
-        this.cargarPersonasAdultas();
-
+        this.cargarTodasPersonas();
     }
 
+    public Barrio[] getBarrios() {
+        return barrios;
+    }
+
+    public Familia[] getFamilia() {
+        return familia;
+    }
+
+    public Institucion[] getInsti() {
+        return insti;
+    }
+
+    public ArrayList<Enfermedad> getListaE() {
+        return listaE;
+    }
+
+    
     public ArrayList<Persona> getPersonas() {
         return this.personas;
     }
@@ -96,6 +110,12 @@ public class Modelo {
     public void crearPersona(Persona p) {
 
     }
+    public void cargarTodasPersonas(){
+        this.personas.clear();
+        cargarPersonasJovenes();
+        cargarPersonasMenor();
+        cargarPersonasAdultas();
+    }
 
     public void cargarPersonasAdultas() {
 
@@ -123,8 +143,11 @@ public class Modelo {
         }
     }
 
+    public void insertarPersona(String sql ){
+       this.db.create(sql);
+    }
     public void cargarPersonasMenor() {
-
+        
         ResultSet st = db.read("select * from persona inner join persona_menor on persona.id_persona = persona_menor.id_persona");
         try {
             while (st.next()) {

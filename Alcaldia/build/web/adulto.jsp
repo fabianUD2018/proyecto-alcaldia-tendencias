@@ -13,7 +13,9 @@
 <%@page import="clases.Modelo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%  Modelo m = (Modelo)application.getAttribute("modelo"); %>
+<%  Modelo m = (Modelo)application.getAttribute("modelo");
+    m.cargarTodasPersonas();
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

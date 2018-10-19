@@ -7,7 +7,7 @@ package clases;
  * @created 16-oct.-2018 4:11:56 p. m.
  */
 public class Enfermedad {
-        private String nombre;
+        private String nombre;//aqui guardo el id
 	private String descripcion;
 
     public Enfermedad(String nombre, String d) {
