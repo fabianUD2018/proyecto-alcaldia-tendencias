@@ -23,8 +23,10 @@
             Personas
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Consultar</a>
-            <a class="dropdown-item" href="#">Agregar</a>
+            <a class="dropdown-item" href="adulto.jsp">Consultar adultos</a>
+            <a class="dropdown-item" href="menor.jsp">Consultar menores</a>
+            <a class="dropdown-item" href="jovenes.jsp">Consultar jovenes</a>
+            <a class="dropdown-item" href="insercionPersonas.jsp">Agregar</a>
            <!--<div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>-->
           </div>
