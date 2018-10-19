@@ -184,7 +184,7 @@ public class Modelo {
         }
     }
 
-    /* codigo correspondiente a los planteles como objetos */
+
     public void cargarPersonasJovenes() {
 
         ResultSet st = db.read("select * from persona inner join joven on persona.id_persona = joven.id_joven order by nombre");
