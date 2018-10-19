@@ -11,5 +11,5 @@ Instalar postgres, cargar el script de la base de datos en postgres.
 # importante
 Cuando terminen hacen merge a master
 
-**En la clase de conexion a base de datos puede que falle debido al nombre y usuario que hayan puesto ustedes, pueden dejar el nombre y contrasela que puse en el codigo para que no le bote error a ninguno**
+**En la clase de conexion a base de datos puede que falle debido al nombre y usuario que hayan puesto ustedes, pueden dejar el nombre y contrasela que puse en el codigo para que no le bote error a ninguno**  
 *universidad distrital francisco jose de caldas*
