@@ -2,6 +2,21 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/src/java/clases/Enfermedad.java</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/src/java/clases/Adulto.java</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/src/java/clases/Menor.java</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/src/java/clases/Persona.java</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/src/java/clases/Familia.java</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/src/java/clases/GestorBaseDatos.java</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/src/java/clases/Joven.java</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/web/menor.jsp</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/src/java/clases/Modelo.java</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/web/index.jsp</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/web/adulto.jsp</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/web/jovenes.jsp</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/web/insercionPersonas.jsp</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/web/GuardarPersona.jsp</file>
+        </group>
     </open-files>
 </project-private>

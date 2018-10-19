@@ -73,7 +73,7 @@ public class GestorBaseDatos {
                  
                 rs = st.executeQuery(sql);
             } catch (SQLException ex) {
-                //Logger.getLogger(GestorBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(GestorBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
             }
 		
 	}
