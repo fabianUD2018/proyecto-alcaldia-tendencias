@@ -160,9 +160,9 @@
                                 </div> 
                                 <div class ="form-group">
                                     <label for ="enfermedades">Enfermedades </label>
-                                    <%Modelo m = (Modelo) application.getAttribute("modelo");
-                                        ArrayList<Enfermedad> e = new ArrayList<>();
-                                        e = m.getListaE();
+                                    <% Modelo m = (Modelo) application.getAttribute("modelo");
+                                        ArrayList<Enfermedad> e = new ArrayList<Enfermedad>();
+                                         e = m.getListaE();
                                         out.print("<select class =form-control name =\"enfermedad\">");
                                         out.print("<option></option>");
                                         for (Enfermedad x : e) {
