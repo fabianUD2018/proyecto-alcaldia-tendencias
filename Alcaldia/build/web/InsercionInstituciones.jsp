@@ -31,14 +31,14 @@
                 </div>
                 <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
-                        <form class ="m-3" method="GET" action="GuardarInstituciones.jsp" >
+                        <form class ="m-3" method="GET" action="GuardarEntidad.jsp" >
                             <div class ="form-group">
                                 <label for ="nombre empresa"> Nombre de la empresa </label>
                                 <input class ="form-control"  name ="nombre_entidad" type ="text" >
                             </div>
                             <div class ="form-group">
                                 <label for ="jurisdiccion"> jurisdicción </label>
-                                <select name ="plantel" class ="form-control">
+                                <select name ="jurisdiccion" class ="form-control">
                                     <option >Hace parte</option>
                                     <option >No hace parte</option>
                                 </select>
@@ -47,8 +47,8 @@
                                 <label for ="actividad_economica"> Actividad economica </label>
                                 <input class ="form-control"  name ="actividad_economica" type ="text" >
                             </div> <div class ="form-group">
-                                <label for ="nombre_dueño"> dueño </label>
-                                <input class ="form-control"  name ="nombre_dueño" type ="text" >
+                                <label for ="nombre_dueno"> dueño </label>
+                                <input class ="form-control"  name ="nombre_dueno" type ="text" >
                             </div> 
                             <div class ="form-group">
                                 <label for ="Nit">Nit</label>

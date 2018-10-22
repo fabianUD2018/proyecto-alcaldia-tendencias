@@ -281,5 +281,18 @@ public class Modelo {
         }
     }
     
+    public int obtenerIndiceEmpresa(){
+        ResultSet st = db.read("select * from empresa ORDER BY id_empresa DESC LIMIT 1");
+        try {
+        st.next();
+        
+        
+            return Integer.parseInt(st.getString("id_empresa")) ;
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+    }
+    
     
 }
