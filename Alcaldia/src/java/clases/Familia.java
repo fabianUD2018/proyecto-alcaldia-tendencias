@@ -1,5 +1,7 @@
 package clases;
 
+import java.util.ArrayList;
+
 
 /**
  * @author fcher
@@ -11,13 +13,13 @@ public class Familia {
 	private int codigo;
 	private String direccion;
 	private String ingFamiliar;
-	private Persona personas;
+	private ArrayList<Persona> personas;
 	private int telefono;
 	private String tHabitacion;
 	private String tVivienda;
 	private Persona m_Persona;
 
-    public Familia(int codigo, String direccion, String ingFamiliar, int telefono, String tHabitacion, String tVivienda) {
+    public Familia(int codigo, String direccion, String ingFamiliar, int telefono, String tHabitacion, String tVivienda, ArrayList<Persona> personas) {
         this.codigo = codigo;
         this.direccion = direccion;
         this.ingFamiliar = ingFamiliar;
@@ -25,6 +27,7 @@ public class Familia {
         this.telefono = telefono;
         this.tHabitacion = tHabitacion;
         this.tVivienda = tVivienda;
+        
         
     }
 
@@ -70,7 +73,7 @@ public class Familia {
         return ingFamiliar;
     }
 
-    public Persona getPersonas() {
+    public ArrayList<Persona> getPersonas() {
         return personas;
     }
 
@@ -89,5 +92,7 @@ public class Familia {
     public Persona getM_Persona() {
         return m_Persona;
     }
+    
+    
 
 }
