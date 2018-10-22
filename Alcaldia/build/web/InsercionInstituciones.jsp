@@ -17,7 +17,7 @@
 
         <%@include file="./header.jsp" %>
         <div class ="m-3">
-            <h2 >Formulario de ingreso de personas </h2>
+            <h2 >Formulario de ingreso de entidades </h2>
 
             <div class="accordion" id="accordion">
                 <div class="card">
@@ -69,45 +69,34 @@
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                         <div class="card-body">
-                            <form class ="m-3" method="GET" action ="GuardarPersona.jsp" >
+                            <form class ="m-3" method="GET" action ="GuardarEntidad.jsp" >
                                 <div class ="form-group">
-                                    <label for ="nombre persona"> Nombre de la persona </label>
-                                    <input class ="form-control"  name ="nombre_persona" type ="text" >
-                                </div>
-                                <div class ="form-group">
-                                    <label for ="documento"> documento </label>
-                                    <input class ="form-control"  name ="documento" type ="text" >
-                                </div>
-                                <div class ="form-group">
-                                    <label for ="fecha_nacimiento"> fecha de nacimiento </label>
-                                    <input class ="form-control"  name ="fecha_nacimiento" type ="text" >
-                                </div> <div class ="form-group">
-                                    <label for ="lugar_nacimiento"> lugar de nacimiento </label>
-                                    <input class ="form-control"  name ="lugar_nacimiento" type ="text" >
-                                </div> 
-                                <div class ="form-group">
-                                    <label for ="cargo">Cargo</label>
-                                    <input class ="form-control" name ="cargo" type ="text" min =0>
-                                </div>
-                              
-                                <div class ="form-group">
-                                    <label for ="jornada_trabajo">Jornada</label>
-                                    <input class ="form-control" name="jornada_trabajo" type ="text">
-                                </div>
-                                <div class ="form-group">
-                                    <label for ="sueldo">Sueldo</label>
-                                    <input class ="form-control" name ="sueldo" type ="text">
-                                </div>
-                                <!-- Codigo para obtener los planteles con el uso del modelo-->
-
-                                <div class ="form-group">
-                                    <label for ="empresa"> Empresa </label>
-                                    <select name ="empresa" class ="form-control">
-
-                                        <option > jacer consulta sq</option>
-                                    </select>
-                                </div>
-                                <input class ="btn btn-primary col" type ="submit" name ="accion" value ="Guardar Adulto"> 
+                                <label for ="nombre empresa"> Nombre de la empresa </label>
+                                <input class ="form-control"  name ="nombre_entidad" type ="text" >
+                            </div>
+                            <div class ="form-group">
+                                <label for ="jurisdiccion"> jurisdicción </label>
+                                <select name ="jurisdiccion" class ="form-control">
+                                    <option >Hace parte</option>
+                                    <option >No hace parte</option>
+                                </select>
+                            </div>
+                            <div class ="form-group">
+                                <label for ="actividad_economica"> Actividad economica </label>
+                                <input class ="form-control"  name ="actividad_economica" type ="text" >
+                            </div> <div class ="form-group">
+                                <label for ="nombre_dueno"> Representante </label>
+                                <input class ="form-control"  name ="nombre_dueno" type ="text" >
+                            </div> 
+                            <div class ="form-group">
+                                <label for ="tplantel">Tipo de plantel</label>
+                                <input class ="form-control" name ="tplantel" type ="text" min =0>
+                            </div>
+                            <div class ="form-group">
+                                <label for ="Nit">Nit</label>
+                                <input class ="form-control" name ="Nit" type ="number" min =0>
+                            </div>
+                                <input class ="btn btn-primary col" type ="submit" name ="accion" value ="Guardar Plantel"> 
                             </form>
                         </div>
                     </div>
@@ -122,29 +111,31 @@
                     </div>
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                         <div class="card-body">
-                            <form class ="m-3" method="GET" action="GuardarPersona.jsp" >
+                            <form class ="m-3" method="GET" action="GuardarEntidad.jsp" >
                                 <div class ="form-group">
-                                    <label for ="nombre persona"> Nombre de la persona </label>
-                                    <input class ="form-control"  name ="nombre_persona" type ="text" >
-                                </div>
-                                <div class ="form-group">
-                                    <label for ="documento"> documento </label>
-                                    <input class ="form-control"  name ="documento" type ="text" >
-                                </div>
-                                <div class ="form-group">
-                                    <label for ="fecha_nacimiento"> fecha de nacimiento </label>
-                                    <input class ="form-control"  name ="fecha_nacimiento" type ="text" >
-                                </div> <div class ="form-group">
-                                    <label for ="lugar_nacimiento"> lugar de nacimiento </label>
-                                    <input class ="form-control"  name ="lugar_nacimiento" type ="text" >
-                                </div> 
-                                
-                                <div class ="form-group">
-                                    <label for ="guarderia">Guarderia</label>
-                                    <input class ="form-control"  name ="guarderia" type ="text" >
-                                </div>
+                                <label for ="nombre empresa"> Nombre de la empresa </label>
+                                <input class ="form-control"  name ="nombre_entidad" type ="text" >
+                            </div>
+                            <div class ="form-group">
+                                <label for ="jurisdiccion"> jurisdicción </label>
+                                <select name ="jurisdiccion" class ="form-control">
+                                    <option >Hace parte</option>
+                                    <option >No hace parte</option>
+                                </select>
+                            </div>
+                            <div class ="form-group">
+                                <label for ="actividad_economica"> Actividad economica </label>
+                                <input class ="form-control"  name ="actividad_economica" type ="text" >
+                            </div> <div class ="form-group">
+                                <label for ="nombre_dueno"> Representante </label>
+                                <input class ="form-control"  name ="nombre_dueno" type ="text" >
+                            </div> 
+                            <div class ="form-group">
+                                <label for ="Nit">Nit</label>
+                                <input class ="form-control" name ="Nit" type ="number" min =0>
+                            </div>
 
-                                <input class ="btn btn-primary col" type ="submit" name ="accion" value ="Guardar Menor"> 
+                                <input class ="btn btn-primary col" type ="submit" name ="accion" value ="Guardar Guarderia"> 
                             </form>
 
                         </div>

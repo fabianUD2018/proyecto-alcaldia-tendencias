@@ -33,6 +33,7 @@
       <th scope="col">Jurisdicción</th>      
       <th scope="col">Dueño</th>
       <th scope="col">Tipo de plantel</th>
+      <th scope="col">Nit</th>
     </tr>
   </thead>
   <tbody>
@@ -50,6 +51,7 @@
             out.print("<td>" + temp.getJurisdiccion()+ "</td>");              
             out.print("<td>" + temp.getRepresentante()+ "</td>");                                    
             out.print("<td>" + temp.getTipo_plantel()+ "</td>");
+            out.print("<td>" + temp.getNit()+ "</td>");
             out.print("</tr>");
         }
         

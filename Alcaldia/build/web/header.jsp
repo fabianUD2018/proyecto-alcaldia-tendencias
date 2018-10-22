@@ -49,7 +49,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="Empresa.jsp">Consultar Empresas</a>
             <a class="dropdown-item" href="Guarderia.jsp">Consultar Guarderias</a>
-            <a class="dropdown-item" href="Planteles.jsp">Consultar Institutos</a>
+            <a class="dropdown-item" href="Planteles.jsp">Consultar Planteles</a>
             <a class="dropdown-item" href="InsercionInstituciones.jsp">Agregar</a>
            <!--<div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>-->

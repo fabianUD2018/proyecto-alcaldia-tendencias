@@ -19,69 +19,63 @@
     <% String accion= (String) request.getParameter("accion");
     if (accion.equals ("Guardar Empresa")){
         
-        System.out.println("entre aqui");
+        
         String nombre= (String) request.getParameter("nombre_entidad");
-        String jurisdiccion= (String) request.getParameter("jurisdiccion");
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa "+ jurisdiccion);
+        String jurisdiccion= (String) request.getParameter("jurisdiccion");        
         String actividad_economica= (String) request.getParameter("actividad_economica");
         String nombre_dueño= (String) request.getParameter("nombre_dueno");
         String tipo = "legal";
         String Nit= (String) request.getParameter("Nit");
         String consulta ="INSERT INTO institucion (actividad, tipo, jurisdiccion, nombre, id_institucion) VALUES (\'"+actividad_economica+"\', "+"\'"+tipo+"\'"+", \'"+jurisdiccion+"\' , \'"+nombre+"\' , "+Nit+")";
-        System.out.println(consulta);
-        Modelo m = (Modelo)application.getAttribute("modelo");
-        m.insertarPersona(consulta);
-        int llave = m.obtenerIndiceEmpresa();    
+        
+        Modelo m = (Modelo)application.getAttribute("modelo");        
+        m.insertarPersona(consulta);        
+        int llave = m.obtenerIndice("empresa");          
         llave++;
+        
         String consulta2 ="INSERT INTO empresa (nit, dueno, id_institucion, id_empresa) VALUES ("+Nit+", "+"\'"+nombre_dueño+"\' , "+Nit+", "+llave+")";        
-        m.insertarPersona(consulta2);        
+        m.insertarPersona(consulta2);       
+        
         response.sendRedirect("Empresa.jsp");
         
-    }else if (accion.equals ("Guardar Menor")){ 
-        String persona= (String) request.getParameter("nombre_persona");
-        String documento= (String) request.getParameter("documento");
-        String fecha_nacimiento= (String) request.getParameter("fecha_nacimiento");
-        String lugar_nacimiento= (String) request.getParameter("lugar_nacimiento");
-       
-        String enf= (String) request.getParameter("enfermedad");
+    }else if (accion.equals ("Guardar Plantel")){ 
+        String nombre= (String) request.getParameter("nombre_entidad");
+        String jurisdiccion= (String) request.getParameter("jurisdiccion");        
+        String actividad_economica= (String) request.getParameter("actividad_economica");
+        String nombre_dueño= (String) request.getParameter("nombre_dueno");
+        String tipo = "legal";
+        String Nit= (String) request.getParameter("Nit");
+        String tplantel= (String) request.getParameter("tplantel");
+        String consulta ="INSERT INTO institucion (actividad, tipo, jurisdiccion, nombre, id_institucion) VALUES (\'"+actividad_economica+"\', "+"\'"+tipo+"\'"+", \'"+jurisdiccion+"\' , \'"+nombre+"\' , "+Nit+")";
+        System.out.println("||||||||||||||||||||"+consulta);
+        Modelo m = (Modelo)application.getAttribute("modelo");        
+        m.insertarPersona(consulta);        
+        int llave = m.obtenerIndice("plantel"); 
+        llave++;
         
+        String consulta2 ="INSERT INTO plantel (nit, representante, id_institucion, id_plantel, tipo_plantel) VALUES ("+Nit+", "+"\'"+nombre_dueño+"\' , "+Nit+", "+llave+", \'"+tplantel+"\')";        
+        System.out.println("||||||||||||||||||||"+consulta2);
+        m.insertarPersona(consulta2);       
         
-        String consulta ="INSERT INTO persona VALUES ("+documento+", "+"\'"+fecha_nacimiento+"\'"+", \'"+lugar_nacimiento+"\' , \'"+persona+"\', "+documento+", "+1+")";
-        
-        Modelo m = (Modelo)application.getAttribute("modelo");
-        m.insertarPersona(consulta);
-        String idE=null;
-        for (Enfermedad x :m.getListaE()){
-            if (x.getDescripcion().equals(enf)){
-                idE= x.getNombre();
-                break;
-            }
-        }
-        String consulta2 ="INSERT INTO persona_menor (id_menor,  id_persona) VALUES ("+documento+", " +documento+");"
-                + "        INSERT INTO menor_enfermedad VALUES ("+idE+ ", "+ documento+");"; 
-        m.insertarPersona(consulta2);
-        response.sendRedirect("menor.jsp");
+        response.sendRedirect("Planteles.jsp");
     }else{
-        String persona= (String) request.getParameter("nombre_persona");
-        String documento= (String) request.getParameter("documento");
-        String fecha_nacimiento= (String) request.getParameter("fecha_nacimiento");
-        String lugar_nacimiento= (String) request.getParameter("lugar_nacimiento");
-       
-        String cargo= (String) request.getParameter("cargo");
-        String jornada_trabajo= (String) request.getParameter("jornada_trabajo");
-        String sueldo= (String) request.getParameter("sueldo");
-        String empresa= (String) request.getParameter("empresa");
+        String nombre= (String) request.getParameter("nombre_entidad");
+        String jurisdiccion= (String) request.getParameter("jurisdiccion");        
+        String actividad_economica= (String) request.getParameter("actividad_economica");
+        String nombre_dueño= (String) request.getParameter("nombre_dueno");
+        String tipo = "legal";
+        String Nit= (String) request.getParameter("Nit");
+        String consulta ="INSERT INTO institucion (actividad, tipo, jurisdiccion, nombre, id_institucion) VALUES (\'"+actividad_economica+"\', "+"\'"+tipo+"\'"+", \'"+jurisdiccion+"\' , \'"+nombre+"\' , "+Nit+")";
         
-        Modelo m = (Modelo)application.getAttribute("modelo");
+        Modelo m = (Modelo)application.getAttribute("modelo");        
+        m.insertarPersona(consulta);        
+         int llave = m.obtenerIndice("guarderia");    
+        llave++;
         
-        String consulta ="INSERT INTO persona VALUES ("+documento+", "+"\'"+fecha_nacimiento+"\'"+", \'"+lugar_nacimiento+"\' , \'"+persona+"\', "+documento+", "+1+")";
+        String consulta2 ="INSERT INTO guarderia (nit, representante, id_institucion, id_guarderia) VALUES ("+Nit+", "+"\'"+nombre_dueño+"\' , "+Nit+", "+llave+")";        
+        m.insertarPersona(consulta2);       
         
-        m.insertarPersona(consulta);
-        String consulta2 ="INSERT INTO adulto  VALUES (\'"+cargo+"\', \'" +jornada_trabajo+"\', \'"+sueldo+"\', "+documento+", "+documento+" )";
-        System.out.println(consulta2);
-        m.insertarPersona(consulta2);
-        response.sendRedirect("adulto.jsp");
-        
+        response.sendRedirect("Guarderia.jsp");
     }
     
 
