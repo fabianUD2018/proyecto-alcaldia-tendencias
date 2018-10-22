@@ -11,9 +11,11 @@ public class Plantel extends Institucion {
 	private String representante;
 	private String tipo_plantel;
 
-    public Plantel(String representante, String tipo_plantel) {
-        this.representante = representante;
-        this.tipo_plantel = tipo_plantel;
+    public Plantel(String nombre, String actividad, String juris,
+                String dueño, String nit, String tipo,String tipoPlantel) {
+        super(actividad,juris, nombre, tipo);
+        this.representante = dueño;
+        this.tipo_plantel = tipoPlantel;
     }
 
 	
@@ -33,5 +35,13 @@ public class Plantel extends Institucion {
 	public String setDatos(String param){
 		return "";
 	}
+
+    public String getRepresentante() {
+        return representante;
+    }
+
+    public String getTipo_plantel() {
+        return tipo_plantel;
+    }
 
 }

@@ -11,8 +11,11 @@ public class Empresa extends Institucion {
 	private String dueno;
 	private String nit;
 
-	public Empresa(){
-
+	public Empresa(String nombre, String actividad, String juris,
+                String dueño, String nit, String tipo){
+            super(actividad,juris, nombre, tipo);
+            this.dueno = dueño;
+            this.nit = nit;
 	}
 
 	public void finalize() throws Throwable {
@@ -30,5 +33,15 @@ public class Empresa extends Institucion {
 	public String setDatos(String param){
 		return "";
 	}
+
+    public String getDueno() {
+        return dueno;
+    }
+
+    public String getNit() {
+        return nit;
+    }
+        
+        
 
 }
