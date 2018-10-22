@@ -17,7 +17,7 @@ public class Modelo {
 
     private Barrio barrios[];
     private GestorBaseDatos db;
-    private ArrayList<Familia> familia;    
+    private ArrayList<Familia> familia;
     private ArrayList<Persona> personas;
     private ArrayList<Enfermedad> listaE;
     private ArrayList<Institucion> insti;
@@ -30,14 +30,14 @@ public class Modelo {
 
     public Modelo() {
         personas = new ArrayList();
-        insti =new ArrayList();
+        insti = new ArrayList();
         familia = new ArrayList();
         listaE = new ArrayList<>();
         db = GestorBaseDatos.obtenerGestor();
         db.realizaConexion();
         cargarEnfermedades();
         this.cargarTodasPersonas();
-        
+
     }
 
     public Barrio[] getBarrios() {
@@ -56,7 +56,6 @@ public class Modelo {
         return listaE;
     }
 
-    
     public ArrayList<Persona> getPersonas() {
         return this.personas;
     }
@@ -113,7 +112,8 @@ public class Modelo {
     public void crearPersona(Persona p) {
 
     }
-    public void cargarTodasPersonas(){
+
+    public void cargarTodasPersonas() {
         this.personas.clear();
         cargarPersonasJovenes();
         cargarPersonasMenor();
@@ -146,11 +146,12 @@ public class Modelo {
         }
     }
 
-    public void insertarPersona(String sql ){
-       this.db.create(sql);
+    public void insertarPersona(String sql) {
+        this.db.create(sql);
     }
+
     public void cargarPersonasMenor() {
-        
+
         ResultSet st = db.read("select * from persona inner join persona_menor on persona.id_persona = persona_menor.id_persona");
         try {
             while (st.next()) {
@@ -186,7 +187,6 @@ public class Modelo {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 
     public void cargarPersonasJovenes() {
 
@@ -224,8 +224,8 @@ public class Modelo {
         }
 
     }
-    
-    public void cargarEmpresas(){
+
+    public void cargarEmpresas() {
         this.insti.clear();
         ResultSet st = db.read("select * from institucion inner join empresa on institucion.id_institucion = empresa.id_institucion");
         try {
@@ -236,7 +236,7 @@ public class Modelo {
                 String nit = st.getString("nit");
                 String dueño = st.getString("dueno");
                 String tipo = st.getString("tipo");
-                
+
                 Empresa empTemp = new Empresa(nombre, actividad, jurisdiccion, dueño, nit, tipo);
                 insti.add(empTemp);
             }
@@ -244,8 +244,8 @@ public class Modelo {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void cargarPlanteles(){
+
+    public void cargarPlanteles() {
         this.insti.clear();
         ResultSet st = db.read("select * from institucion inner join plantel on institucion.id_institucion = plantel.id_institucion");
         try {
@@ -257,16 +257,16 @@ public class Modelo {
                 String dueño = st.getString("representante");
                 String tipo = st.getString("tipo");
                 String tipoPlantel = st.getString("tipo_plantel");
-                
-                Plantel empTemp = new Plantel(nombre, actividad, jurisdiccion, dueño, nit, tipo,tipoPlantel);
+
+                Plantel empTemp = new Plantel(nombre, actividad, jurisdiccion, dueño, nit, tipo, tipoPlantel);
                 insti.add(empTemp);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void cargarGuarderias(){
+
+    public void cargarGuarderias() {
         this.insti.clear();
         ResultSet st = db.read("select * from institucion inner join guarderia on institucion.id_institucion = guarderia.id_institucion");
         try {
@@ -276,8 +276,8 @@ public class Modelo {
                 String jurisdiccion = st.getString("jurisdiccion");
                 String nit = st.getString("nit");
                 String dueño = st.getString("representante");
-                String tipo = st.getString("tipo");                
-                
+                String tipo = st.getString("tipo");
+
                 Guarderia empTemp = new Guarderia(nombre, actividad, jurisdiccion, dueño, nit, tipo);
                 insti.add(empTemp);
             }
@@ -285,35 +285,36 @@ public class Modelo {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public int obtenerIndice(String entidad){
-        ResultSet st = db.read("select * from "+ entidad +" ORDER BY id_"+entidad+" DESC LIMIT 1");
+
+    public int obtenerIndice(String entidad) {
+        ResultSet st = db.read("select * from " + entidad + " ORDER BY id_" + entidad + " DESC LIMIT 1");
         try {
-        st.next();     
-        
-            return Integer.parseInt(st.getString("id_"+entidad)) ;
+            st.next();
+
+            return Integer.parseInt(st.getString("id_" + entidad));
         } catch (SQLException ex) {
             System.out.println("lesto");
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
     }
-    
-    public int obtenerIndice(String entidad, String codigo){
-        ResultSet st = db.read("select * from "+ entidad +" ORDER BY id_"+codigo+" DESC LIMIT 1");
+
+    public int obtenerIndice(String entidad, String codigo) {
+        ResultSet st = db.read("select * from " + entidad + " ORDER BY id_" + codigo + " DESC LIMIT 1");
         try {
-        st.next();     
-        
-            return Integer.parseInt(st.getString("id_"+codigo)) ;
+            st.next();
+
+            return Integer.parseInt(st.getString("id_" + codigo));
         } catch (SQLException ex) {
             System.out.println("lesto");
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
     }
-    
-    public void cargarFamilias(){
+
+    public void cargarFamilias() {
         this.familia.clear();
+        this.cargarTodasPersonas();
         ResultSet st = db.read("select * from familia");
         try {
             while (st.next()) {
@@ -322,17 +323,43 @@ public class Modelo {
                 String ingresos = st.getString("ingresos");
                 int telefono = Integer.parseInt(st.getString("telefono"));
                 String habitacion = st.getString("tipo_habitacion");
-                String tipo_vivienda = st.getString("tipo_vivienda");                
-                
-                Familia empTemp = new Familia(id_codigo,direccion,ingresos, telefono, habitacion, tipo_vivienda);
+                String tipo_vivienda = st.getString("tipo_vivienda");
+                ArrayList<String> temp = obtenerFamiliaPersona(id_codigo);
+                ArrayList<Persona> familiares = new ArrayList<Persona>();
+                if (!temp.isEmpty()) {
+                    for (String codigoPersona : temp) {
+                        for (Persona i : this.personas) {
+                            if (i.getCodigo() == Integer.parseInt(codigoPersona)) {
+                                familiares.add(i);
+                            }
+                        }
+                    }
+                }
+
+                Familia empTemp = new Familia(id_codigo, direccion, ingresos, telefono, habitacion, tipo_vivienda, familiares);
                 familia.add(empTemp);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-   
-    
-    
+
+    public ArrayList<String> obtenerFamiliaPersona(int codigo) {
+        ResultSet st = db.read("select id_persona from familia_persona where id_codigo = " + codigo);
+        ArrayList<String> consulta = new ArrayList<String>();
+        try {
+            while (st.next()) {
+                consulta.add(st.getString("id_persona"));
+            }
+        } catch (Exception e) {
+        }
+        System.out.println("personita   " + consulta.size());
+        
+        
+                
+
+        return consulta;
+
+    }
+
 }

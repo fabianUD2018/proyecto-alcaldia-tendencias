@@ -34,9 +34,13 @@
       <th scope="col">Telefono</th>
       <th scope="col">Tipo de habitación</th>      
       <th scope="col">Tipo de vivienda</th>      
+      <th scope="col">Integrantes</th>
     </tr>
   </thead>
   <tbody>
+     <form  class ="m-3" method="GET"  action="FamiliaPersona.jsp" >
+    
+ 
       <% 
     ArrayList<Familia> p= m.getFamilia();
     int cont=0; 
@@ -53,11 +57,15 @@
             out.print("<td>" + temp.getTelefono()+ "</td>");
             out.print("<td>" + temp.gettHabitacion()+ "</td>");
             out.print("<td>" + temp.gettVivienda()+ "</td>");
+            out.print("<td> <input class =\"btn btn-primary col\" type =\"submit\" name =\"accion\" value =\""+  temp.getCodigo() +"\"></td>");
             out.print("</tr>");
        
         
        }
+    
    %>
+     </form >
+
   </tbody>
 </table>
     </div>
