@@ -20,7 +20,7 @@
      <div class ="container-fluid">
          <%@include file="./header.jsp" %>
   <div class ="m-3">
-  <h2 >Listado de empresas </h2>
+  <h2 >Listado de Guarderias </h2>
   
   <table class="table table-responsive">
   <thead>

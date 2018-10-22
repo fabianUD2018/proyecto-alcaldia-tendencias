@@ -36,8 +36,8 @@
             Familias
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Consultar</a>
-            <a class="dropdown-item" href="#">Agregar</a>
+            <a class="dropdown-item" href="Familia.jsp">Consultar</a>
+            <a class="dropdown-item" href="InsersionFamilia.jsp">Agregar</a>
            <!--<div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>-->
           </div>

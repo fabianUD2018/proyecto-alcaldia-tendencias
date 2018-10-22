@@ -17,7 +17,7 @@ public class Modelo {
 
     private Barrio barrios[];
     private GestorBaseDatos db;
-    private Familia familia[];    
+    private ArrayList<Familia> familia;    
     private ArrayList<Persona> personas;
     private ArrayList<Enfermedad> listaE;
     private ArrayList<Institucion> insti;
@@ -31,6 +31,7 @@ public class Modelo {
     public Modelo() {
         personas = new ArrayList();
         insti =new ArrayList();
+        familia = new ArrayList();
         listaE = new ArrayList<>();
         db = GestorBaseDatos.obtenerGestor();
         db.realizaConexion();
@@ -43,7 +44,7 @@ public class Modelo {
         return barrios;
     }
 
-    public Familia[] getFamilia() {
+    public ArrayList<Familia> getFamilia() {
         return familia;
     }
 
@@ -297,6 +298,40 @@ public class Modelo {
             return 0;
         }
     }
+    
+    public int obtenerIndice(String entidad, String codigo){
+        ResultSet st = db.read("select * from "+ entidad +" ORDER BY id_"+codigo+" DESC LIMIT 1");
+        try {
+        st.next();     
+        
+            return Integer.parseInt(st.getString("id_"+codigo)) ;
+        } catch (SQLException ex) {
+            System.out.println("lesto");
+            Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+    }
+    
+    public void cargarFamilias(){
+        this.familia.clear();
+        ResultSet st = db.read("select * from familia");
+        try {
+            while (st.next()) {
+                int id_codigo = Integer.parseInt(st.getString("id_codigo"));
+                String direccion = st.getString("direccion");
+                String ingresos = st.getString("ingresos");
+                int telefono = Integer.parseInt(st.getString("telefono"));
+                String habitacion = st.getString("tipo_habitacion");
+                String tipo_vivienda = st.getString("tipo_vivienda");                
+                
+                Familia empTemp = new Familia(id_codigo,direccion,ingresos, telefono, habitacion, tipo_vivienda);
+                familia.add(empTemp);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
    
     
     
