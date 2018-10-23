@@ -79,6 +79,7 @@
                             <div class ="form-group">
                                 <label for ="plantel"> Plantel </label>
                                 <select name ="plantel" class ="form-control">
+                                    <option></option>
 
                                     <%                                         ArrayList<Institucion> ins = m.getInsti();
                                         int cont = 0;
@@ -90,6 +91,15 @@
                                         }
                                     %>
                                 </select>
+                            </div>
+                            <div class ="form-group">
+                                <label for =tipodoc"> Tipo de documento de identificacion </label>
+                                <select name ="tipo_doc" class ="form-control">
+                                    <option>1</option> 
+                                   
+                                </select>
+                                <p>1 -> Cedula</p>
+                           
                             </div>
                             <input class ="btn btn-primary col" type ="submit" name ="accion" value ="Guardar Joven"> 
                         </form>
@@ -109,6 +119,15 @@
                                 <div class ="form-group">
                                     <label for ="nombre persona"> Nombre de la persona </label>
                                     <input class ="form-control"  name ="nombre_persona" type ="text" >
+                                </div>
+                                <div class ="form-group">
+                                    <label for =tipodoc"> Tipo de documento de identificacion </label>
+                                    <select name ="tipo_doc" class ="form-control">
+                                        <option>1</option> 
+                                   
+                                    </select>
+                                    <p>1 -> Cedula</p>
+                               
                                 </div>
                                 <div class ="form-group">
                                     <label for ="documento"> documento </label>
@@ -134,16 +153,16 @@
                                     <label for ="sueldo">Sueldo</label>
                                     <input class ="form-control" name ="sueldo" type ="text">
                                 </div>
-                                <!-- Codigo para obtener los planteles con el uso del modelo-->
 
                                 <div class ="form-group">
                                     <label for ="empresa"> Empresa </label>
                                     <select name ="empresa" class ="form-control">
+                                        <option>---</option>
 
                                         <%
                                             ArrayList<Institucion> emp = m.getInsti();
-                                            
-                                            for (Institucion i : ins) {
+
+                                            for (Institucion i : emp) {
                                                 if (i instanceof Empresa) {
                                                     Empresa temp = (Empresa) i;
                                                     out.println("<option>" + temp.getNombre() + "</option>");
@@ -173,6 +192,15 @@
                                     <input class ="form-control"  name ="nombre_persona" type ="text" >
                                 </div>
                                 <div class ="form-group">
+                                    <label for =tipodoc"> Tipo de documento de identificacion </label>
+                                    <select name ="tipo_doc" class ="form-control">
+                                        <option>1</option> 
+                                        
+                                    </select>
+                                    <p>1 -> Cedula</p>
+                                    
+                                </div>
+                                <div class ="form-group">
                                     <label for ="documento"> documento </label>
                                     <input class ="form-control"  name ="documento" type ="text" >
                                 </div>
@@ -189,7 +217,8 @@
                                         ArrayList<Enfermedad> e = new ArrayList<Enfermedad>();
                                         e = m.getListaE();
                                         out.print("<select class =form-control name =\"enfermedad\">");
-                                        out.print("<option></option>");
+
+                                        out.print("<option>---</option>");
                                         for (Enfermedad x : e) {
 
                                             out.print("<option> " + x.getDescripcion() + "</option>");
@@ -202,13 +231,14 @@
                                 <div class ="form-group">
                                     <label for ="guarderia">Guarderia</label>
                                     <select name ="guarderia" class ="form-control">
-                                     <%
+                                        <option>---</option>
+                                        <%
                                             ArrayList<Institucion> gua = m.getInsti();
-                                            
-                                            for (Institucion i : ins) {
+
+                                            for (Institucion i : gua) {
                                                 if (i instanceof Guarderia) {
                                                     Guarderia temp = (Guarderia) i;
-                                                    out.println("<option>" +temp.getNombre() + "</option>");
+                                                    out.println("<option>" + temp.getNombre() + "</option>");
                                                 }
                                             }
                                         %>

@@ -141,13 +141,29 @@ public class Modelo {
                 String cargo = st.getString("cargo");
                 String jornada = st.getString("jornada");
                 String sueldo = st.getString("sueldo");
-
+                String id_adulto = st.getInt("id_adutlo") + "";//cuidado con esto
+                ResultSet st2 = db.read("select id_empresa from adulto_empresa where adulto_empresa.id_adutlo = " + id_adulto);
                 //falta recibir la empresa 
                 Adulto aTemp = new Adulto(codigo, documento, fecha_nac + "", lugar, nombre, cargo, jornada, sueldo);
+                while (st2.next()) {
+                    String id_empresa = st2.getInt("id_empresa") + "";
+                    
+                    for (Institucion temp : insti) {
+                        if (temp instanceof Empresa) {
+                            Empresa t = (Empresa) temp;
+                            if (t.getId_empresa().equals(id_empresa)) {
+                                System.out.println(temp.getNombre());
+                                aTemp.addEmpresa(t);
+                                break;
+                            }
+                        }
 
+                    }
+                }
+                
                 personas.add(aTemp);
 
-                //Falta obtener garderia de un menor
+                
             }
         } catch (SQLException ex) {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
@@ -190,7 +206,7 @@ public class Modelo {
                 for (Institucion temp : insti) {
                     if (temp instanceof Guarderia) {
                         Guarderia t = (Guarderia) temp;
-                        if (t.getId_guarderia().equals(id_guarderia+""))  {
+                        if (t.getId_guarderia().equals(id_guarderia + "")) {
                             System.out.println(temp.getNombre());
                             menorTemp.setGuarderia(t);
                             break;
@@ -198,7 +214,7 @@ public class Modelo {
                     }
 
                 }
-                
+
                 personas.add(menorTemp);
 
                 //Falta obtener garderia de un menor
@@ -221,13 +237,13 @@ public class Modelo {
                 String curso = st.getString("curso");
                 String educacion = st.getString("educacion");
                 String tipo_e = st.getString("tipo_e");
-                String id_plantel = st.getInt("id_plantel")+"";
+                String id_plantel = st.getInt("id_plantel") + "";
                 //plantel 
-                Joven tempJ= new Joven(codigo, documento, fecha_nac + "", lugar, nombre, curso, educacion, "Diuna", null, tipo_e);
-                 for (Institucion temp : insti) {
+                Joven tempJ = new Joven(codigo, documento, fecha_nac + "", lugar, nombre, curso, educacion, "Diuna", null, tipo_e);
+                for (Institucion temp : insti) {
                     if (temp instanceof Plantel) {
                         Plantel t = (Plantel) temp;
-                        if (t.getId_plantel().equals(id_plantel+""))  {
+                        if (t.getId_plantel().equals(id_plantel + "")) {
                             System.out.println(t.getNombre());
                             tempJ.setPlantel(t);
                             break;
@@ -269,8 +285,9 @@ public class Modelo {
                 String nit = st.getString("nit");
                 String dueño = st.getString("dueno");
                 String tipo = st.getString("tipo");
+                String id_empresa = st.getInt("id_empresa") + "";
 
-                Empresa empTemp = new Empresa(nombre, actividad, jurisdiccion, dueño, nit, tipo);
+                Empresa empTemp = new Empresa(id_empresa, nombre, actividad, jurisdiccion, dueño, nit, tipo);
                 insti.add(empTemp);
             }
         } catch (SQLException ex) {
@@ -290,7 +307,7 @@ public class Modelo {
                 String dueño = st.getString("representante");
                 String tipo = st.getString("tipo");
                 String tipoPlantel = st.getString("tipo_plantel");
-                String id_plantel = st.getInt("id_plantel")+"";
+                String id_plantel = st.getInt("id_plantel") + "";
 
                 Plantel empTemp = new Plantel(id_plantel, nombre, actividad, jurisdiccion, dueño, nit, tipo, tipoPlantel);
                 insti.add(empTemp);

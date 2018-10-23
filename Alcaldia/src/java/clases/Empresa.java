@@ -10,13 +10,19 @@ public class Empresa extends Institucion {
 
 	private String dueno;
 	private String nit;
+        private String id_empresa;
 
-	public Empresa(String nombre, String actividad, String juris,
+	public Empresa(String id, String nombre, String actividad, String juris,
                 String dueño, String nit, String tipo){
             super(actividad,juris, nombre, tipo);
             this.dueno = dueño;
             this.nit = nit;
+            this.id_empresa=id;
 	}
+
+    public String getId_empresa() {
+        return id_empresa;
+    }
 
 	public void finalize() throws Throwable {
 		super.finalize();

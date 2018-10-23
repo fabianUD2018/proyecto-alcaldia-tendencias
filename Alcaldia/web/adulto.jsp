@@ -4,6 +4,7 @@
     Author     : fcher
 --%>
 
+<%@page import="clases.Empresa"%>
 <%@page import="clases.Adulto"%>
 <%@page import="clases.Enfermedad"%>
 <%@page import="clases.Menor"%>
@@ -40,6 +41,7 @@
       <th scope ="col"> Cargo</th>
       <th scope ="col"> jornada </th> 
       <th scope="col" > sueldo</th>
+      <th>Empresas en las que trabaja</th>
     </tr>
   </thead>
   <tbody>
@@ -60,7 +62,12 @@
             out.print("<td>" + temp.getCargo()+ "</td>");
             out.print("<td>" + temp.getJornada()+"</td>");
             out.print("<td>" + temp.getSueldo()+ "</td>");
-            
+            ArrayList<Empresa> e = temp.getEmpresa(); 
+            String empr="";
+            for (Empresa en : e){
+                empr +=" "+en.getNombre() + ", ";
+            }
+            out.print("<td>" + empr+ "</td>");
             out.print("</tr>");
         }
         
