@@ -11,16 +11,23 @@ public class Plantel extends Institucion {
 	private String representante;
 	private String tipo_plantel;
         private int nit;
+        private String id_plantel;
 
-    public Plantel(String nombre, String actividad, String juris,
+    public Plantel(String id_plantel, String nombre, String actividad, String juris,
                 String dueño, String nit, String tipo,String tipoPlantel) {
         super(actividad,juris, nombre, tipo);
         this.representante = dueño;
         this.tipo_plantel = tipoPlantel;
+        this.id_plantel=id_plantel;
         this.nit = Integer.parseInt(nit);
     }
 
+    public String getId_plantel() {
+        return id_plantel;
+    }
+
 	
+    
 
 	public void finalize() throws Throwable {
 		super.finalize();

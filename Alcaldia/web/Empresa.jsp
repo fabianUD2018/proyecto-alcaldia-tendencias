@@ -11,7 +11,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%  Modelo m = (Modelo)application.getAttribute("modelo"); 
-    m.cargarEmpresas();
+    m.cargarTodasLasInstituciones();
 %>
 <html>
     <head>

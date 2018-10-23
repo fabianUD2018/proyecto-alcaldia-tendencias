@@ -24,6 +24,10 @@ public class Joven extends Persona {
         
     }
 
+    public void setPlantel(Plantel plantel) {
+        this.plantel = plantel;
+    }
+
     public String getCurso() {
         return curso;
     }

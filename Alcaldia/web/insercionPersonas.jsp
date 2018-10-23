@@ -4,12 +4,19 @@
     Author     : fcher
 --%>
 
+<%@page import="clases.Guarderia"%>
+<%@page import="clases.Empresa"%>
+<%@page import="clases.Plantel"%>
+<%@page import="clases.Institucion"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="clases.Enfermedad"%>
 <%@page import="clases.Enfermedad"%>
 <%@page import="clases.Modelo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%  Modelo m = (Modelo) application.getAttribute("modelo");
+    m.cargarTodasLasInstituciones();
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -72,7 +79,16 @@
                             <div class ="form-group">
                                 <label for ="plantel"> Plantel </label>
                                 <select name ="plantel" class ="form-control">
-                                    <option > jacer consulta sq</option>
+
+                                    <%                                         ArrayList<Institucion> ins = m.getInsti();
+                                        int cont = 0;
+                                        for (Institucion i : ins) {
+                                            if (i instanceof Plantel) {
+                                                Plantel temp = (Plantel) i;
+                                                out.println("<option>" + temp.getNombre() + "</option>");
+                                            }
+                                        }
+                                    %>
                                 </select>
                             </div>
                             <input class ="btn btn-primary col" type ="submit" name ="accion" value ="Guardar Joven"> 
@@ -109,7 +125,7 @@
                                     <label for ="cargo">Cargo</label>
                                     <input class ="form-control" name ="cargo" type ="text" min =0>
                                 </div>
-                              
+
                                 <div class ="form-group">
                                     <label for ="jornada_trabajo">Jornada</label>
                                     <input class ="form-control" name="jornada_trabajo" type ="text">
@@ -124,7 +140,16 @@
                                     <label for ="empresa"> Empresa </label>
                                     <select name ="empresa" class ="form-control">
 
-                                        <option > jacer consulta sq</option>
+                                        <%
+                                            ArrayList<Institucion> emp = m.getInsti();
+                                            
+                                            for (Institucion i : ins) {
+                                                if (i instanceof Empresa) {
+                                                    Empresa temp = (Empresa) i;
+                                                    out.println("<option>" + temp.getNombre() + "</option>");
+                                                }
+                                            }
+                                        %>
                                     </select>
                                 </div>
                                 <input class ="btn btn-primary col" type ="submit" name ="accion" value ="Guardar Adulto"> 
@@ -160,9 +185,9 @@
                                 </div> 
                                 <div class ="form-group">
                                     <label for ="enfermedades">Enfermedades </label>
-                                    <% Modelo m = (Modelo) application.getAttribute("modelo");
+                                    <%
                                         ArrayList<Enfermedad> e = new ArrayList<Enfermedad>();
-                                         e = m.getListaE();
+                                        e = m.getListaE();
                                         out.print("<select class =form-control name =\"enfermedad\">");
                                         out.print("<option></option>");
                                         for (Enfermedad x : e) {
@@ -176,7 +201,18 @@
                                 </div>
                                 <div class ="form-group">
                                     <label for ="guarderia">Guarderia</label>
-                                    <input class ="form-control"  name ="guarderia" type ="text" >
+                                    <select name ="guarderia" class ="form-control">
+                                     <%
+                                            ArrayList<Institucion> gua = m.getInsti();
+                                            
+                                            for (Institucion i : ins) {
+                                                if (i instanceof Guarderia) {
+                                                    Guarderia temp = (Guarderia) i;
+                                                    out.println("<option>" +temp.getNombre() + "</option>");
+                                                }
+                                            }
+                                        %>
+                                    </select>
                                 </div>
 
                                 <input class ="btn btn-primary col" type ="submit" name ="accion" value ="Guardar Menor"> 

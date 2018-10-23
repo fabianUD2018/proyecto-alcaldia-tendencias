@@ -19,6 +19,16 @@ public class Menor extends Persona {
         this.guarderia=g;
     }
 
+    public void setGuarderia(Guarderia guarderia) {
+        this.guarderia = guarderia;
+    }
+
+    public Guarderia getGuarderia() {
+    
+        return guarderia;
+    }
+    
+
 	
 
 	public void finalize() throws Throwable {

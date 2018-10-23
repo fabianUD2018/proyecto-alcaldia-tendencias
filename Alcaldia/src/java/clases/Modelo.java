@@ -36,6 +36,7 @@ public class Modelo {
         db = GestorBaseDatos.obtenerGestor();
         db.realizaConexion();
         cargarEnfermedades();
+        this.cargarTodasLasInstituciones();
         this.cargarTodasPersonas();
 
     }
@@ -120,6 +121,13 @@ public class Modelo {
         cargarPersonasAdultas();
     }
 
+    public void cargarTodasLasInstituciones() {
+        this.insti.clear();
+        this.cargarEmpresas();
+        this.cargarGuarderias();
+        this.cargarPlanteles();
+    }
+
     public void cargarPersonasAdultas() {
 
         ResultSet st = db.read("select * from persona inner join adulto on persona.id_persona = adulto.id_persona");
@@ -164,7 +172,7 @@ public class Modelo {
                 System.out.println(id_menor + "<-");
                 int id_guarderia = st.getInt("id_guarderia");
                 ResultSet st2 = db.read("select men.id_menor, men.id_enfermedad, e.descripcion from  menor_enfermedad men, enfermedades e where men.id_menor = " + id_menor + " and e.id_enfermedad = men.id_enfermedad ;");
-                //obtener enfermedades de un menor
+
                 Menor menorTemp = new Menor(codigo, documento, fecha_nac + "", lugar, nombre, null);
                 while (st2.next()) {
 
@@ -178,7 +186,19 @@ public class Modelo {
                     }
 
                 }
-                System.out.println(menorTemp.getEnfermedades().size());
+
+                for (Institucion temp : insti) {
+                    if (temp instanceof Guarderia) {
+                        Guarderia t = (Guarderia) temp;
+                        if (t.getId_guarderia().equals(id_guarderia+""))  {
+                            System.out.println(temp.getNombre());
+                            menorTemp.setGuarderia(t);
+                            break;
+                        }
+                    }
+
+                }
+                
                 personas.add(menorTemp);
 
                 //Falta obtener garderia de un menor
@@ -201,8 +221,21 @@ public class Modelo {
                 String curso = st.getString("curso");
                 String educacion = st.getString("educacion");
                 String tipo_e = st.getString("tipo_e");
+                String id_plantel = st.getInt("id_plantel")+"";
                 //plantel 
-                personas.add(new Joven(codigo, documento, fecha_nac + "", lugar, nombre, curso, educacion, "Diuna", null, tipo_e));
+                Joven tempJ= new Joven(codigo, documento, fecha_nac + "", lugar, nombre, curso, educacion, "Diuna", null, tipo_e);
+                 for (Institucion temp : insti) {
+                    if (temp instanceof Plantel) {
+                        Plantel t = (Plantel) temp;
+                        if (t.getId_plantel().equals(id_plantel+""))  {
+                            System.out.println(t.getNombre());
+                            tempJ.setPlantel(t);
+                            break;
+                        }
+                    }
+
+                }
+                personas.add(tempJ);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
@@ -226,7 +259,7 @@ public class Modelo {
     }
 
     public void cargarEmpresas() {
-        this.insti.clear();
+
         ResultSet st = db.read("select * from institucion inner join empresa on institucion.id_institucion = empresa.id_institucion");
         try {
             while (st.next()) {
@@ -246,7 +279,7 @@ public class Modelo {
     }
 
     public void cargarPlanteles() {
-        this.insti.clear();
+
         ResultSet st = db.read("select * from institucion inner join plantel on institucion.id_institucion = plantel.id_institucion");
         try {
             while (st.next()) {
@@ -257,8 +290,9 @@ public class Modelo {
                 String dueño = st.getString("representante");
                 String tipo = st.getString("tipo");
                 String tipoPlantel = st.getString("tipo_plantel");
+                String id_plantel = st.getInt("id_plantel")+"";
 
-                Plantel empTemp = new Plantel(nombre, actividad, jurisdiccion, dueño, nit, tipo, tipoPlantel);
+                Plantel empTemp = new Plantel(id_plantel, nombre, actividad, jurisdiccion, dueño, nit, tipo, tipoPlantel);
                 insti.add(empTemp);
             }
         } catch (SQLException ex) {
@@ -267,7 +301,7 @@ public class Modelo {
     }
 
     public void cargarGuarderias() {
-        this.insti.clear();
+
         ResultSet st = db.read("select * from institucion inner join guarderia on institucion.id_institucion = guarderia.id_institucion");
         try {
             while (st.next()) {
@@ -277,8 +311,9 @@ public class Modelo {
                 String nit = st.getString("nit");
                 String dueño = st.getString("representante");
                 String tipo = st.getString("tipo");
+                String id_guarderia = st.getInt("id_guarderia") + "";
 
-                Guarderia empTemp = new Guarderia(nombre, actividad, jurisdiccion, dueño, nit, tipo);
+                Guarderia empTemp = new Guarderia(id_guarderia, nombre, actividad, jurisdiccion, dueño, nit, tipo);
                 insti.add(empTemp);
             }
         } catch (SQLException ex) {
@@ -354,9 +389,6 @@ public class Modelo {
         } catch (Exception e) {
         }
         System.out.println("personita   " + consulta.size());
-        
-        
-                
 
         return consulta;
 
