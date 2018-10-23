@@ -141,8 +141,8 @@ public class Modelo {
                 String cargo = st.getString("cargo");
                 String jornada = st.getString("jornada");
                 String sueldo = st.getString("sueldo");
-                String id_adulto = st.getInt("id_adutlo") + "";//cuidado con esto
-                ResultSet st2 = db.read("select id_empresa from adulto_empresa where adulto_empresa.id_adutlo = " + id_adulto);
+                String id_adulto = st.getInt("id_adulto") + "";//cuidado con esto
+                ResultSet st2 = db.read("select id_empresa from adulto_empresa where adulto_empresa.id_adulto = " + id_adulto);
                 //falta recibir la empresa 
                 Adulto aTemp = new Adulto(codigo, documento, fecha_nac + "", lugar, nombre, cargo, jornada, sueldo);
                 while (st2.next()) {
