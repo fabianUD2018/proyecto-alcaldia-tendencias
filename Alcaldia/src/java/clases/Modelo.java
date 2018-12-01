@@ -30,12 +30,9 @@ public class Modelo {
     
     public Modelo() {
         personas = new ArrayList();
-<<<<<<< HEAD
         barrios = new ArrayList();
-=======
         insti = new ArrayList();
         familia = new ArrayList();
->>>>>>> df8365e88bb7b8ec4274a84327e0cad0cc0ffc1e
         listaE = new ArrayList<>();
         db = GestorBaseDatos.obtenerGestor();
         db.realizaConexion();
@@ -48,32 +45,19 @@ public class Modelo {
     public ArrayList<Barrio> getBarrios() {
         return barrios;
     }
-<<<<<<< HEAD
-    
-    public Familia[] getFamilia() {
-        return familia;
-    }
-    
-    public Institucion[] getInsti() {
-=======
 
     public ArrayList<Familia> getFamilia() {
         return familia;
     }
 
     public ArrayList<Institucion> getInsti() {
->>>>>>> df8365e88bb7b8ec4274a84327e0cad0cc0ffc1e
         return insti;
     }
     
     public ArrayList<Enfermedad> getListaE() {
         return listaE;
     }
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> df8365e88bb7b8ec4274a84327e0cad0cc0ffc1e
     public ArrayList<Persona> getPersonas() {
         return this.personas;
     }
@@ -130,11 +114,7 @@ public class Modelo {
     public void crearPersona(Persona p) {
         
     }
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> df8365e88bb7b8ec4274a84327e0cad0cc0ffc1e
     public void cargarTodasPersonas() {
         this.personas.clear();
         cargarPersonasJovenes();
@@ -160,7 +140,6 @@ public class Modelo {
                 BarrioN aTemp = new BarrioN(nombre, estrato, area, tipo);
                 barrios.add(aTemp);
 
-<<<<<<< HEAD
                 //Falta guardarle las familias        
             }
         } catch (SQLException ex) {
@@ -178,24 +157,21 @@ public class Modelo {
                 String tipo = st.getString("tipo");
                 BIndustrial aTemp = new BIndustrial(nombre, estrato, area, tipo);
                 barrios.add(aTemp);
-=======
-    public void cargarTodasLasInstituciones() {
-        this.insti.clear();
-        this.cargarEmpresas();
-        this.cargarGuarderias();
-        this.cargarPlanteles();
-    }
-
-    public void cargarPersonasAdultas() {
->>>>>>> df8365e88bb7b8ec4274a84327e0cad0cc0ffc1e
-
-                //Falta guardarle las familias        
+                
             }
+
+  
         } catch (SQLException ex) {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
+      public void cargarTodasLasInstituciones() {
+        this.insti.clear();
+        this.cargarEmpresas();
+        this.cargarGuarderias();
+        this.cargarPlanteles();
+    }
     public void cargarBarriosEstrato12() {
         ResultSet st = db.read("select * from barrio , b_bajo  where barrio.id_barrio=b_bajo.id_barrio");
         ResultSet rt;
@@ -254,8 +230,7 @@ public class Modelo {
                 ResultSet st2 = db.read("select id_empresa from adulto_empresa where adulto_empresa.id_adulto = " + id_adulto);
                 //falta recibir la empresa 
                 Adulto aTemp = new Adulto(codigo, documento, fecha_nac + "", lugar, nombre, cargo, jornada, sueldo);
-<<<<<<< HEAD
-=======
+
                 while (st2.next()) {
                     String id_empresa = st2.getInt("id_empresa") + "";
                     
@@ -271,7 +246,7 @@ public class Modelo {
 
                     }
                 }
->>>>>>> df8365e88bb7b8ec4274a84327e0cad0cc0ffc1e
+
                 
                 personas.add(aTemp);
 
@@ -281,7 +256,7 @@ public class Modelo {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-<<<<<<< HEAD
+
     
     public void insertarPersona(String sql) {
         this.db.create(sql);
@@ -290,14 +265,8 @@ public class Modelo {
     public void insertarBarrio(String sql) {
         this.db.create(sql);
     }
-    
-=======
 
-    public void insertarPersona(String sql) {
-        this.db.create(sql);
-    }
 
->>>>>>> df8365e88bb7b8ec4274a84327e0cad0cc0ffc1e
     public void cargarPersonasMenor() {
 
         ResultSet st = db.read("select * from persona inner join persona_menor on persona.id_persona = persona_menor.id_persona");
@@ -347,11 +316,7 @@ public class Modelo {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> df8365e88bb7b8ec4274a84327e0cad0cc0ffc1e
     public void cargarPersonasJovenes() {
         
         ResultSet st = db.read("select * from persona inner join joven on persona.id_persona = joven.id_joven order by nombre");
