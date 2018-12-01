@@ -1,0 +1,22 @@
+SMAP
+barriosResidenciales_jsp.java
+JSP
+*S JSP
+*F
++ 0 barriosResidenciales.jsp
+barriosResidenciales.jsp
++ 1 header.jsp
+./header.jsp
++ 2 footer.jsp
+./footer.jsp
+*L
+5,11:58
+15,3:68
+17,9:71
+5#1,79:80
+25#0,17:159
+42,31:177
+72,5:208
+5#2,18:213
+76#0,3:231
+*E

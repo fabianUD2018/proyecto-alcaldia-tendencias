@@ -14,8 +14,8 @@ import java.util.logging.Logger;
  * @created 16-oct.-2018 4:12:13 p. m.
  */
 public class Modelo {
-
-    private Barrio barrios[];
+    
+    private ArrayList<Barrio> barrios;
     private GestorBaseDatos db;
     private ArrayList<Familia> familia;
     private ArrayList<Persona> personas;
@@ -27,11 +27,15 @@ public class Modelo {
     public Persona m_Persona;
     public GestorBaseDatos m_GestorBaseDatos;
     public Controlador m_Controlador;
-
+    
     public Modelo() {
         personas = new ArrayList();
+<<<<<<< HEAD
+        barrios = new ArrayList();
+=======
         insti = new ArrayList();
         familia = new ArrayList();
+>>>>>>> df8365e88bb7b8ec4274a84327e0cad0cc0ffc1e
         listaE = new ArrayList<>();
         db = GestorBaseDatos.obtenerGestor();
         db.realizaConexion();
@@ -40,44 +44,57 @@ public class Modelo {
         this.cargarTodasPersonas();
 
     }
-
-    public Barrio[] getBarrios() {
+    
+    public ArrayList<Barrio> getBarrios() {
         return barrios;
     }
+<<<<<<< HEAD
+    
+    public Familia[] getFamilia() {
+        return familia;
+    }
+    
+    public Institucion[] getInsti() {
+=======
 
     public ArrayList<Familia> getFamilia() {
         return familia;
     }
 
     public ArrayList<Institucion> getInsti() {
+>>>>>>> df8365e88bb7b8ec4274a84327e0cad0cc0ffc1e
         return insti;
     }
-
+    
     public ArrayList<Enfermedad> getListaE() {
         return listaE;
     }
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> df8365e88bb7b8ec4274a84327e0cad0cc0ffc1e
     public ArrayList<Persona> getPersonas() {
         return this.personas;
     }
-
+    
     @Override
     public void finalize() throws Throwable {
-
+        
     }
-
+    
     public Barrio consultarBarrio() {
         return null;
     }
-
+    
     private Familia consultarFamilia() {
         return null;
     }
-
+    
     public Institucion consultarInstitucion() {
         return null;
     }
-
+    
     public Persona consultarPersona() {
         return null;
     }
@@ -87,7 +104,7 @@ public class Modelo {
      * @param b
      */
     public void crearBarrio(Barrio b) {
-
+        
     }
 
     /**
@@ -95,7 +112,7 @@ public class Modelo {
      * @param f
      */
     public void crearFamilia(Familia f) {
-
+        
     }
 
     /**
@@ -103,7 +120,7 @@ public class Modelo {
      * @param i
      */
     public void crearInstitucion(Institucion i) {
-
+        
     }
 
     /**
@@ -111,16 +128,57 @@ public class Modelo {
      * @param p
      */
     public void crearPersona(Persona p) {
-
+        
     }
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> df8365e88bb7b8ec4274a84327e0cad0cc0ffc1e
     public void cargarTodasPersonas() {
         this.personas.clear();
         cargarPersonasJovenes();
         cargarPersonasMenor();
         cargarPersonasAdultas();
     }
+    
+    public void cargarTodosBarrio() {
+        this.barrios.clear();
+        cargarBarriosN();
+        cargarBarriosIndustriales();
+        cargarBarriosEstrato12();
+    }
+    
+    public void cargarBarriosN() {
+        ResultSet st = db.read("select * from barrio where barrio.estrato>2 and barrio.tipo!='Industrial'");
+        try {
+            while (st.next()) {
+                String nombre = st.getString("nombre");
+                int estrato = st.getInt("estrato");
+                String area = st.getString("area");
+                String tipo = st.getString("tipo");
+                BarrioN aTemp = new BarrioN(nombre, estrato, area, tipo);
+                barrios.add(aTemp);
 
+<<<<<<< HEAD
+                //Falta guardarle las familias        
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void cargarBarriosIndustriales() {
+        ResultSet st = db.read("select * from barrio , b_industrial  where barrio.id_barrio=b_industrial.id_barrio");
+        try {
+            while (st.next()) {
+                String nombre = st.getString("nombre");
+                int estrato = st.getInt("estrato");
+                String area = st.getString("area");
+                String tipo = st.getString("tipo");
+                BIndustrial aTemp = new BIndustrial(nombre, estrato, area, tipo);
+                barrios.add(aTemp);
+=======
     public void cargarTodasLasInstituciones() {
         this.insti.clear();
         this.cargarEmpresas();
@@ -129,7 +187,58 @@ public class Modelo {
     }
 
     public void cargarPersonasAdultas() {
+>>>>>>> df8365e88bb7b8ec4274a84327e0cad0cc0ffc1e
 
+                //Falta guardarle las familias        
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void cargarBarriosEstrato12() {
+        ResultSet st = db.read("select * from barrio , b_bajo  where barrio.id_barrio=b_bajo.id_barrio");
+        ResultSet rt;
+        ArrayList<Ruta> rutas = new ArrayList<>();
+        try {
+            while (st.next()) {
+                rt = db.read("select * from rutas,bajo_rutas, b_bajo, barrio  where rutas.id_ruta=bajo_rutas.id_ruta and b_bajo.id_b_bajo=bajo_rutas.id_b_bajo and b_bajo.id_barrio=barrio.id_barrio and barrio.id_barrio=" + st.getString("id_barrio"));
+                String nombre = st.getString("nombre");
+                int estrato = st.getInt("estrato");
+                String area = st.getString("area");
+                String tipo = st.getString("tipo");
+                BEstratoInferior aTemp = new BEstratoInferior(nombre, estrato, area, tipo);
+                while (rt.next()) {
+                    boolean existeRuta = false;
+                    int posicionRuta=0;
+                    int codigoRuta = rt.getInt("id_ruta");
+                    for (int i = 0; i < rutas.size(); i++) {
+                        if (codigoRuta == rutas.get(i).getNombreRuta()) {
+                            existeRuta = true;
+                            posicionRuta = i;
+                        }
+                    }
+                    if (!existeRuta) {
+                        String nombreRuta = rt.getString("des_ruta");                        
+                        Ruta rut = new Ruta(codigoRuta, nombreRuta);                        
+                        rutas.add(rut);
+                        aTemp.añadirRuta(rut);
+                    } else {
+                        aTemp.añadirRuta(rutas.get(posicionRuta));
+                    }
+                    existeRuta = false;
+                }
+                barrios.add(aTemp);
+                //Falta guardarle las familias        
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    public void cargarPersonasAdultas() {
+        
         ResultSet st = db.read("select * from persona inner join adulto on persona.id_persona = adulto.id_persona");
         try {
             while (st.next()) {
@@ -145,6 +254,8 @@ public class Modelo {
                 ResultSet st2 = db.read("select id_empresa from adulto_empresa where adulto_empresa.id_adulto = " + id_adulto);
                 //falta recibir la empresa 
                 Adulto aTemp = new Adulto(codigo, documento, fecha_nac + "", lugar, nombre, cargo, jornada, sueldo);
+<<<<<<< HEAD
+=======
                 while (st2.next()) {
                     String id_empresa = st2.getInt("id_empresa") + "";
                     
@@ -160,6 +271,7 @@ public class Modelo {
 
                     }
                 }
+>>>>>>> df8365e88bb7b8ec4274a84327e0cad0cc0ffc1e
                 
                 personas.add(aTemp);
 
@@ -169,11 +281,23 @@ public class Modelo {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+<<<<<<< HEAD
+    
+    public void insertarPersona(String sql) {
+        this.db.create(sql);
+    }
+    
+    public void insertarBarrio(String sql) {
+        this.db.create(sql);
+    }
+    
+=======
 
     public void insertarPersona(String sql) {
         this.db.create(sql);
     }
 
+>>>>>>> df8365e88bb7b8ec4274a84327e0cad0cc0ffc1e
     public void cargarPersonasMenor() {
 
         ResultSet st = db.read("select * from persona inner join persona_menor on persona.id_persona = persona_menor.id_persona");
@@ -191,16 +315,16 @@ public class Modelo {
 
                 Menor menorTemp = new Menor(codigo, documento, fecha_nac + "", lugar, nombre, null);
                 while (st2.next()) {
-
+                    
                     for (Enfermedad temp : listaE) {
-
+                        
                         if (temp.getNombre().equals(st2.getInt("id_enfermedad") + "")) {
-
+                            
                             menorTemp.addEnfermedad(temp);
                             break;
                         }
                     }
-
+                    
                 }
 
                 for (Institucion temp : insti) {
@@ -223,9 +347,13 @@ public class Modelo {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> df8365e88bb7b8ec4274a84327e0cad0cc0ffc1e
     public void cargarPersonasJovenes() {
-
+        
         ResultSet st = db.read("select * from persona inner join joven on persona.id_persona = joven.id_joven order by nombre");
         try {
             while (st.next()) {
@@ -260,7 +388,7 @@ public class Modelo {
 
     /*Cargar todas las enfermedades de la base de datos al sistema*/
     private void cargarEnfermedades() {
-
+        
         ResultSet st = db.read("select * from enfermedades");
         try {
             while (st.next()) {
@@ -271,7 +399,7 @@ public class Modelo {
         } catch (SQLException ex) {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
     }
 
     public void cargarEmpresas() {

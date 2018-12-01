@@ -1,5 +1,6 @@
 package clases;
 
+import java.util.ArrayList;
 
 /**
  * @author fcher
@@ -8,37 +9,29 @@ package clases;
  */
 public class BEstratoInferior extends Barrio {
 
-	private Rutas rutas;
-	private Rutas m_Rutas;
+    private ArrayList<Ruta> m_Rutas;
 
-	public BEstratoInferior(){
+    public BEstratoInferior() {
 
-	}
+    }
 
+    BEstratoInferior(String nombre, int estrato, String area, String tipo) {
+        m_Rutas = new ArrayList<>();
+        super.setNombre(nombre);
+        super.setArea(area);
+        super.setEstrato(estrato);
+        super.setTipoBarrio(tipo);
+    }
 
+    public void añadirRuta(Ruta ruta) {
+        getM_Rutas().add(ruta);
+    }
 
-	public String getDatos(){
-		return "";
-	}
-
-	public Rutas getRutas(){
-		return m_Rutas;
-	}
-
-	/**
-	 * 
-	 * @param param
-	 */
-	public void setDatos(String param){
-
-	}
-
-	/**
-	 * 
-	 * @param newVal
-	 */
-	public void setRutas(Rutas newVal){
-		m_Rutas = newVal;
-	}
+    /**
+     * @return the m_Rutas
+     */
+    public ArrayList<Ruta> getM_Rutas() {
+        return m_Rutas;
+    }
 
 }
