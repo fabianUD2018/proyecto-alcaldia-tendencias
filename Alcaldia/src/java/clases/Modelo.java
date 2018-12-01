@@ -352,8 +352,8 @@ public class Modelo {
     }
 
     /*Cargar todas las enfermedades de la base de datos al sistema*/
-    private void cargarEnfermedades() {
-        
+    public void cargarEnfermedades() {
+        listaE.clear();
         ResultSet st = db.read("select * from enfermedades");
         try {
             while (st.next()) {

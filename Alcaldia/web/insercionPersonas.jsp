@@ -77,7 +77,7 @@
                                 <select name ="plantel" class ="form-control">
                                     <option></option>
 
-                                    <%                                         ArrayList<Institucion> ins = m.getInsti();
+                                    <%  ArrayList<Institucion> ins = m.getInsti();
                                         int cont = 0;
                                         for (Institucion i : ins) {
                                             if (i instanceof Plantel) {
@@ -211,7 +211,9 @@
                                     <label for ="enfermedades">Enfermedades </label>
                                     <%
                                         ArrayList<Enfermedad> e = new ArrayList<Enfermedad>();
-                                        e = m.getListaE();
+                                        
+                                        m.cargarEnfermedades();
+                                        e= m.getListaE();
                                         out.print("<select class =form-control name =\"enfermedad\">");
 
                                         out.print("<option>---</option>");
