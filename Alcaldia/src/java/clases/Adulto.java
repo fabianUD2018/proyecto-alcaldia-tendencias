@@ -1,5 +1,7 @@
 package clases;
 
+import java.util.ArrayList;
+
 /**
  * @author fcher
  * @version 1.0
@@ -8,7 +10,7 @@ package clases;
 public class Adulto extends Persona {
 
     private String cargo;
-    private Empresa empresa;
+    private ArrayList<Empresa> empresa;
     private String jornada;
     private String sueldo;
 
@@ -17,17 +19,20 @@ public class Adulto extends Persona {
         this.cargo = cargo;
         this.jornada = jornada;
         this.sueldo = sueldo;
-        this.empresa = null;
+        this.empresa = new ArrayList();
     }
 
-    public String getCargo() {
-        return cargo;
-    }
-
-    public Empresa getEmpresa() {
+    public ArrayList<Empresa> getEmpresa() {
         return empresa;
     }
 
+    public void addEmpresa(Empresa p){
+        this.empresa.add(p);
+    }
+    
+    public String getCargo() {
+        return cargo;
+    }
     public String getJornada() {
         return jornada;
     }

@@ -10,13 +10,24 @@ public class Plantel extends Institucion {
 
 	private String representante;
 	private String tipo_plantel;
+        private int nit;
+        private String id_plantel;
 
-    public Plantel(String representante, String tipo_plantel) {
-        this.representante = representante;
-        this.tipo_plantel = tipo_plantel;
+    public Plantel(String id_plantel, String nombre, String actividad, String juris,
+                String dueño, String nit, String tipo,String tipoPlantel) {
+        super(actividad,juris, nombre, tipo);
+        this.representante = dueño;
+        this.tipo_plantel = tipoPlantel;
+        this.id_plantel=id_plantel;
+        this.nit = Integer.parseInt(nit);
+    }
+
+    public String getId_plantel() {
+        return id_plantel;
     }
 
 	
+    
 
 	public void finalize() throws Throwable {
 		super.finalize();
@@ -33,5 +44,19 @@ public class Plantel extends Institucion {
 	public String setDatos(String param){
 		return "";
 	}
+
+    public String getRepresentante() {
+        return representante;
+    }
+
+    public String getTipo_plantel() {
+        return tipo_plantel;
+    }
+
+    public int getNit() {
+        return nit;
+    }
+    
+    
 
 }

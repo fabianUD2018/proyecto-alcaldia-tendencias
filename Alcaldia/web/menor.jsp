@@ -61,6 +61,10 @@
                 enf +=" "+en.getDescripcion() + ", ";
             }
             out.print("<td>" + enf+ "</td>");
+            if (temp.getGuarderia()!=null){
+                 out.print("<td>" + temp.getGuarderia().getNombre()+ "</td>");
+            }
+           
             out.print("</tr>");
         }
         

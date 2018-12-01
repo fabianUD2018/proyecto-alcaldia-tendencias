@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/web/barriosEstratos12.jsp</file>
             <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/web/META-INF/context.xml</file>
             <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/src/java/clases/BEstratoInferior.java</file>
@@ -26,6 +27,30 @@
             <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/web/insercionBarrios.jsp</file>
             <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/src/java/clases/Menor.java</file>
             <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/web/jovenes.jsp</file>
+=======
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/src/java/clases/Enfermedad.java</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/web/header.jsp</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/src/java/clases/Adulto.java</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/src/java/clases/Menor.java</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/src/java/clases/Institucion.java</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/src/java/clases/Persona.java</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/src/java/clases/Familia.java</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/web/InsersionFamilia.jsp</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/src/java/clases/GestorBaseDatos.java</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/src/java/clases/Joven.java</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/web/menor.jsp</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/src/java/clases/Modelo.java</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/web/Planteles.jsp</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/src/java/clases/Plantel.java</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/src/java/clases/Guarderia.java</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/web/index.jsp</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/web/adulto.jsp</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/web/jovenes.jsp</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/web/insercionPersonas.jsp</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/web/GuardarPersona.jsp</file>
+            <file>file:/C:/Users/fcher/Desktop/repo%20tendencias%201/Alcaldia/web/META-INF/context.xml</file>
+>>>>>>> df8365e88bb7b8ec4274a84327e0cad0cc0ffc1e
         </group>
     </open-files>
 </project-private>

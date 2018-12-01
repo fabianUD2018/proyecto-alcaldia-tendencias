@@ -40,6 +40,7 @@
       <th scope="col">Curso</th>
       <th scope="col">Educacion</th>
       <th scope="col">Tipo Educacion</th>
+      <th scope="col"> Plantel</th>
     </tr>
   </thead>
   <tbody>
@@ -60,6 +61,9 @@
             out.print("<td>" +temp.getCurso()+ "</td>");
             out.print("<td>" +temp.getEducacion()+ "</td>");
             out.print("<td>" +temp.getTipoE()+ "</td>");
+            if (temp.getPlantel()!=null){
+                 out.print("<td>" + temp.getPlantel().getNombre()+ "</td>");
+            }
             out.print("</tr>");
         }
         

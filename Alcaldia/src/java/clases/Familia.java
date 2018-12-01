@@ -1,5 +1,7 @@
 package clases;
 
+import java.util.ArrayList;
+
 
 /**
  * @author fcher
@@ -10,16 +12,26 @@ public class Familia {
 
 	private int codigo;
 	private String direccion;
-	private int ingFamiliar;
-	private Persona personas;
+	private String ingFamiliar;
+	private ArrayList<Persona> personas;
 	private int telefono;
 	private String tHabitacion;
 	private String tVivienda;
 	private Persona m_Persona;
 
-	public Familia(){
+    public Familia(int codigo, String direccion, String ingFamiliar, int telefono, String tHabitacion, String tVivienda, ArrayList<Persona> personas) {
+        this.codigo = codigo;
+        this.direccion = direccion;
+        this.ingFamiliar = ingFamiliar;
+        this.personas = personas;
+        this.telefono = telefono;
+        this.tHabitacion = tHabitacion;
+        this.tVivienda = tVivienda;
+        
+        
+    }
 
-	}
+	
 
 	public void finalize() throws Throwable {
 
@@ -48,5 +60,39 @@ public class Familia {
 	public void setPersona(Persona newVal){
 		m_Persona = newVal;
 	}
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public String getIngFamiliar() {
+        return ingFamiliar;
+    }
+
+    public ArrayList<Persona> getPersonas() {
+        return personas;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public String gettHabitacion() {
+        return tHabitacion;
+    }
+
+    public String gettVivienda() {
+        return tVivienda;
+    }
+
+    public Persona getM_Persona() {
+        return m_Persona;
+    }
+    
+    
 
 }

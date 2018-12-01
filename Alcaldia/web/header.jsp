@@ -36,8 +36,9 @@
             Familias
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Consultar</a>
-            <a class="dropdown-item" href="#">Agregar</a>
+            <a class="dropdown-item" href="Familia.jsp">Consultar</a>
+            <a class="dropdown-item" href="InsertarPersonaFamilia.jsp">Asignar integrante familiar</a>
+            <a class="dropdown-item" href="InsersionFamilia.jsp">Agregar</a>
            <!--<div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>-->
           </div>
@@ -47,8 +48,10 @@
             Instituciones
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Consultar</a>
-            <a class="dropdown-item" href="#">Agregar</a>
+            <a class="dropdown-item" href="Empresa.jsp">Consultar Empresas</a>
+            <a class="dropdown-item" href="Guarderia.jsp">Consultar Guarderias</a>
+            <a class="dropdown-item" href="Planteles.jsp">Consultar Planteles</a>
+            <a class="dropdown-item" href="InsercionInstituciones.jsp">Agregar</a>
            <!--<div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>-->
           </div>

@@ -9,9 +9,14 @@ package clases;
 public class Guarderia extends Institucion {
 
 	private String nit;
-	private int representante;
-
-	public Guarderia(){
+	private String representante;
+        private String id_guarderia;
+	public Guarderia(String id_guarderia, String nombre, String actividad, String juris,
+                String dueño, String nit, String tipo){
+            super(actividad,juris, nombre, tipo);
+            this.id_guarderia=id_guarderia;
+            this.nit = nit;
+            this.representante = dueño;
 
 	}
 
@@ -30,5 +35,17 @@ public class Guarderia extends Institucion {
 	public String setDatos(String param){
 		return "";
 	}
+
+    public String getId_guarderia() {
+        return id_guarderia;
+    }
+
+    public String getNit() {
+        return nit;
+    }
+
+    public String getRepresentante() {
+        return representante;
+    }
 
 }
