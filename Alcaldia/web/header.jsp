@@ -58,8 +58,11 @@
             Barrios
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Consultar</a>
-            <a class="dropdown-item" href="#">Agregar</a>
+            <a class="dropdown-item" href="barriosComerciales.jsp">comerciales</a>
+            <a class="dropdown-item" href="barriosIndustriales.jsp">industriales</a>
+            <a class="dropdown-item" href="barriosResidenciales.jsp">residenciales</a>
+            <a class="dropdown-item" href="barriosEstrato12.jsp">estrato 1 y 2</a>
+            <a class="dropdown-item" href="insercionBarrios.jsp">Agregar</a>
            <!--<div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>-->
           </div>

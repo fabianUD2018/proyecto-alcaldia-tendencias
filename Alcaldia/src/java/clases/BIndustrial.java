@@ -1,7 +1,6 @@
 package clases;
 
-
-
+import java.util.ArrayList;
 
 /**
  * @author fcher
@@ -10,39 +9,28 @@ package clases;
  */
 public class BIndustrial extends Barrio {
 
-	private Empresa empresas;
-	private Institucion m_Institucion;
+    private ArrayList<Institucion> m_Institucion;
 
-	public BIndustrial(){
+    public BIndustrial() {
+        m_Institucion = new ArrayList<>();
+    }
 
-	}
+    BIndustrial(String nombre, int estrato, String area, String tipo) {
+        super.setNombre(nombre);
+        super.setArea(area);
+        super.setEstrato(estrato);
+        super.setTipoBarrio(tipo);
+    }
 
-	public void finalize() throws Throwable {
-		super.finalize();
-	}
-
-	public String getDatos(){
-		return "";
-	}
-
-	public Institucion getInstitucion(){
-		return m_Institucion;
-	}
-
-	/**
-	 * 
-	 * @param param
-	 */
-	public void setDatos(String param){
-
-	}
-
-	/**
-	 * 
-	 * @param newVal
-	 */
-	public void setInstitucion(Institucion newVal){
-		m_Institucion = newVal;
-	}
+    /**
+     * @return the empresas
+     */
+    /**
+     * @return the m_Institucion
+     */
+    public ArrayList<Institucion> getM_Institucion() {
+        return m_Institucion;
+    }
+    
 
 }

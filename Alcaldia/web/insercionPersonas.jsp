@@ -20,10 +20,6 @@
         <%@include file="./header.jsp" %>
         <div class ="m-3">
             <h2 >Formulario de ingreso de personas </h2>
-
-
-
-
             <div class="accordion" id="accordion">
                 <div class="card">
                     <div class="card-header" id="headingOne">
@@ -171,8 +167,6 @@
                                         }
                                         out.print("</select>");
                                     %>
-
-
                                 </div>
                                 <div class ="form-group">
                                     <label for ="guarderia">Guarderia</label>

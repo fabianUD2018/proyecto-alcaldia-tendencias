@@ -1,6 +1,5 @@
 package clases;
 
-
 /**
  * @author Rodrigon
  * @version 1.0
@@ -8,20 +7,27 @@ package clases;
  */
 public class BarrioN extends Barrio {
 
-	public BarrioN(){
+    public BarrioN() {
 
-	}
+    }
 
-	public void finalize() throws Throwable {
-		super.finalize();
-	}
+    public BarrioN(String nombre, int estrato, String area, String tipo) {
+        super.setNombre(nombre);
+        super.setArea(area);
+        super.setEstrato(estrato);
+        super.setTipoBarrio(tipo);
+    }
 
-	/**
-	 * 
-	 * @param param
-	 */
-	public void  setDatos(String param){
+    public void finalize() throws Throwable {
+        super.finalize();
+    }
 
-	}
+    /**
+     *
+     * @param param
+     */
+    public void setDatos(String param) {
+
+    }
 
 }
