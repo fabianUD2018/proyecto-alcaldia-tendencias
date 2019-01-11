@@ -4,8 +4,11 @@
     Author     : Rodrigon
 --%>
 
-<%@page import="clases.Enfermedad"%>
+
 <%@page import="clases.Modelo"%>
+<%@page import="clases.Persona"%>
+<%@page import="java.util.ArrayList"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html >
@@ -24,10 +27,22 @@
         String persona= (String) request.getParameter("persona");        
         
         
-        Modelo m = (Modelo)application.getAttribute("modelo");        
+        
+        
+        Modelo m = (Modelo)application.getAttribute("modelo"); 
+        
+        m.cargarTodasPersonas();
+        ArrayList<Persona> p= m.getPersonas();
+        int cod_persona = 0;
+        for (Persona per :  p){
+            if(per.getNombre().equals(persona)){
+                cod_persona = per.getCodigo();
+            }
+        }
+        
         
         String consulta ="INSERT INTO familia_persona  VALUES"
-                + " ("+persona+","+familia+")";
+                + " ("+cod_persona+","+familia+")";
         System.out.println(consulta);
         
        

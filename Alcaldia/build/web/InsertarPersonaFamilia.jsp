@@ -6,9 +6,17 @@
 
 <%@page import="java.util.ArrayList"%>
 <%@page import="clases.Modelo"%>
+<%@page import="clases.Familia"%>
+<%@page import="clases.Persona"%>
+<%@page import="clases.Menor"%>
+<%@page import="clases.Joven"%>
+<%@page import="clases.Adulto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html><%  Modelo m = (Modelo)application.getAttribute("modelo"); 
+    m.cargarTodasPersonas();
+    m.cargarFamilias();
+%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
@@ -20,6 +28,7 @@
             <h2 >Formulario de ingreso de integrantes a una familia </h2>
 
             <div class="accordion" id="accordion">
+                 
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
@@ -34,17 +43,50 @@
                         <form class ="m-3" method="GET" action="GuardarPersonaEnFamilia.jsp" >
                             <div class ="form-group">
                                 <label for ="familia"> Codigo de la familia </label>
-                                <input class ="form-control"  name ="familia" type ="text" >
+                                <select name ="familia" class ="form-control">
+                                     
+                                    <%
+                                        ArrayList<Familia> f= m.getFamilia();
+                                        
+                                        
+                                        for (Familia fam :  f){
+                                           out.print("<option>" + fam.getCodigo()+"</option>" );                                                   
+                                        }
+                                        
+                                    %>
+                                </select>
                             </div>
                             <div class ="form-group">
                                 <label for ="persona"> Codigo del integrante </label>
-                                <input class ="form-control"  name ="persona" type ="text" >
+                                <select name ="persona" class ="form-control">
+                                     
+                                    <%
+                                        ArrayList<Persona> p= m.getPersonas();
+                                        
+                                       
+                                        for (Persona per :  p){
+                                            if (per instanceof Adulto){
+                                                Adulto temp = (Adulto)per;  
+                                                out.print("<option>" + temp.getNombre()+"</option>" ); 
+                                               
+                                            }else if(per instanceof Joven){
+                                                Joven temp = (Joven)per;  
+                                                out.print("<option>" + temp.getNombre()+"</option>" ); 
+                                            }else{
+                                                Menor temp = (Menor)per;  
+                                                out.print("<option>" + temp.getNombre()+"</option>" ); 
+                                            }
+
+                                           }
+                                        
+                                    %>
+                                </select>
                             </div>                           
              
                             <input class ="btn btn-primary col" type ="submit" name ="accion" value ="Guardar"> 
                         </form>
                     </div>
-                </div>                
+                </div>  
             </div>
         </div>
     </div>

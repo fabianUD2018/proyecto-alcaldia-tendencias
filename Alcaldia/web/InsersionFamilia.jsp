@@ -42,8 +42,7 @@
                             </div>
                             <div class ="form-group">
                                 <label for ="barriesito"> Barriesitos </label>
-                                <select name ="barriesito" class ="form-control">
-                                    <option >Barrio</option>  
+                                <select name ="barriesito" class ="form-control">                                      
                                     <%
                                         ArrayList<Barrio> p= m.getBarrios();
                                         
