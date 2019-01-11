@@ -3,11 +3,15 @@
     Created on : 22/10/2018, 01:20:58 AM
     Author     : Rodrigon
 --%>
-
+<%@page import="clases.Barrio"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="clases.Modelo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%  Modelo m = (Modelo)application.getAttribute("modelo"); 
+    m.cargarTodosBarrio();
+    
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -37,9 +41,18 @@
                                 <input class ="form-control"  name ="direccion" type ="text" >
                             </div>
                             <div class ="form-group">
-                                <label for ="barriesito"> Barriesito </label>
+                                <label for ="barriesito"> Barriesitos </label>
                                 <select name ="barriesito" class ="form-control">
-                                    <option >Barrio</option>                                    
+                                    <option >Barrio</option>  
+                                    <%
+                                        ArrayList<Barrio> p= m.getBarrios();
+                                        
+                                        int cont=0; 
+                                        for (Barrio per :  p){
+                                           out.print("<option>" + per.getNombre()+"</option>" );                                                   
+                                        }
+                                        
+                                    %>
                                 </select>
                             </div>
                             <div class ="form-group">
@@ -57,7 +70,7 @@
                                 <label for ="vivienda">Tipo de vivienda</label>
                                 <input class ="form-control" name ="vivienda" type ="text" min =0>
                             </div>
-             
+
                             <input class ="btn btn-primary col" type ="submit" name ="accion" value ="Guardar Familia"> 
                         </form>
                     </div>

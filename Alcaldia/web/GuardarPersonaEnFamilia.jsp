@@ -32,7 +32,7 @@
         
        
         m.insertarPersona(consulta);   
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("Familia.jsp");
         
     }
  

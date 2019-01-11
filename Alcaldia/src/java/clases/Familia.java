@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class Familia {
 
 	private int codigo;
+        private int barrio;
 	private String direccion;
 	private String ingFamiliar;
 	private ArrayList<Persona> personas;
@@ -19,8 +20,9 @@ public class Familia {
 	private String tVivienda;
 	private Persona m_Persona;
 
-    public Familia(int codigo, String direccion, String ingFamiliar, int telefono, String tHabitacion, String tVivienda, ArrayList<Persona> personas) {
+    public Familia(int codigo, int barrio ,String direccion, String ingFamiliar, int telefono, String tHabitacion, String tVivienda, ArrayList<Persona> personas) {
         this.codigo = codigo;
+        this.barrio = barrio;
         this.direccion = direccion;
         this.ingFamiliar = ingFamiliar;
         this.personas = personas;
@@ -91,6 +93,14 @@ public class Familia {
 
     public Persona getM_Persona() {
         return m_Persona;
+    }
+
+    public int getBarrio() {
+        return barrio;
+    }
+
+    public void setBarrio(int barrio) {
+        this.barrio = barrio;
     }
     
     

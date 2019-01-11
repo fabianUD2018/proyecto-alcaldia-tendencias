@@ -48,10 +48,12 @@
         
             Familia temp = (Familia)per;  
             cont++ ;
+            int id  =temp.getBarrio();
+            String barrio = m.nombreBarrio(id);
             out.print("<tr>");
             out.print("<th scope='row'>" + cont + "</th>"); 
             out.print("<td>" + temp.getCodigo()+ "</td>");  
-            out.print("<td></td>");//barrio
+            out.print("<td>" + barrio+ "</td>");
             out.print("<td>" + temp.getDireccion()+ "</td>");   
             out.print("<td>" + temp.getIngFamiliar()+ "</td>"); 
             out.print("<td>" + temp.getTelefono()+ "</td>");

@@ -43,6 +43,7 @@ public class Modelo {
     }
     
     public ArrayList<Barrio> getBarrios() {
+        System.out.println("cantidad de barrios cargados: "+ barrios.size());
         return barrios;
     }
 
@@ -139,6 +140,7 @@ public class Modelo {
                 String tipo = st.getString("tipo");
                 BarrioN aTemp = new BarrioN(nombre, estrato, area, tipo);
                 barrios.add(aTemp);
+                
 
                 //Falta guardarle las familias        
             }
@@ -464,6 +466,7 @@ public class Modelo {
         try {
             while (st.next()) {
                 int id_codigo = Integer.parseInt(st.getString("id_codigo"));
+                int barrio  = Integer.parseInt(st.getString("id_barrio"));
                 String direccion = st.getString("direccion");
                 String ingresos = st.getString("ingresos");
                 int telefono = Integer.parseInt(st.getString("telefono"));
@@ -481,7 +484,7 @@ public class Modelo {
                     }
                 }
 
-                Familia empTemp = new Familia(id_codigo, direccion, ingresos, telefono, habitacion, tipo_vivienda, familiares);
+                Familia empTemp = new Familia(id_codigo, barrio ,direccion, ingresos, telefono, habitacion, tipo_vivienda, familiares);
                 familia.add(empTemp);
             }
         } catch (SQLException ex) {
@@ -502,6 +505,34 @@ public class Modelo {
 
         return consulta;
 
+    }
+    
+    public int obtenerIdBarrio(String nombre){
+        ResultSet st = db.read("select * from barrio where nombre = \'"+nombre+"\'");
+        try {
+            st.next();
+
+            return Integer.parseInt(st.getString("id_barrio"));
+        } catch (SQLException ex) {
+            System.out.println("lesto");
+            Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+        
+        
+    }
+    
+    public String nombreBarrio(int llave){
+        ResultSet st = db.read("select * from barrio where id_barrio = \'"+llave+"\'");
+        try {
+            st.next();
+
+            return st.getString("nombre");
+        } catch (SQLException ex) {
+            System.out.println("lesto");
+            Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
+            return "Sin Nombre";
+        }
     }
 
 }
