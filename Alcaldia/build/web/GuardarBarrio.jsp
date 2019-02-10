@@ -43,7 +43,7 @@
             consulta ="INSERT INTO b_industrial VALUES ("+llaveIndustrial+","+llaveBarrio+")";
             m.insertarBarrio(consulta);  
         }
-        response.sendRedirect("barriosComerciales.jsp");
+        response.sendRedirect("insercionBarrios.jsp");
     }
         %>
 

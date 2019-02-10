@@ -462,6 +462,20 @@ public class Modelo {
             return 0;
         }
     }
+    public int obtenerIndiceR(String entidad) {
+        String RutasSinS=entidad.substring(0, 4);
+        System.out.println(RutasSinS);
+        ResultSet st = db.read("select * from " + entidad + " ORDER BY id_" + RutasSinS + " DESC LIMIT 1");
+        try {
+            st.next();
+
+            return Integer.parseInt(st.getString("id_" + RutasSinS));
+        } catch (SQLException ex) {
+            System.out.println("lesto");
+            Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+    }
 
     public int obtenerIndice(String entidad, String codigo) {
         ResultSet st = db.read("select * from " + entidad + " ORDER BY id_" + codigo + " DESC LIMIT 1");

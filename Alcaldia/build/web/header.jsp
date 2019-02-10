@@ -67,6 +67,7 @@
             <a class="dropdown-item" href="barriosEstratos12.jsp">estrato 1 y 2</a>
             <a class="dropdown-item" href="insercionBarrios.jsp">Agregar</a>
             <a class="dropdown-item" href="insercionRutas.jsp">Asignar rutas</a>
+            <a class="dropdown-item" href="insercionDescripcionRutas.jsp">Agregar rutas</a>
            <!--<div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>-->
           </div>
