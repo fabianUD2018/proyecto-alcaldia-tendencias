@@ -71,7 +71,7 @@
                                     %>                                  
                                 </select>
                             </div> 
-                            <input class ="btn btn-primary col" type ="submit" name ="accion" value ="Guardar ruta"> 
+                                <input class ="btn btn-primary col" type ="submit" name ="accion" value ="Guardar ruta"> 
                         </form>
                     </div>
                 </div>  

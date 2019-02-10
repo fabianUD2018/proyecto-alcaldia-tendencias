@@ -26,7 +26,7 @@
         int llaveBarrio = m.obtenerIndice("barrio"); 
         llaveBarrio++;
         
-        String consulta ="INSERT INTO barrio VALUES ("+area+", "+"\'"+estrato+"\'"+", \'"+barrio+"\' , \'"+tipo+"\', "+llaveBarrio+")";
+        String consulta ="INSERT INTO barrio VALUES ('"+area+"', "+"\'"+estrato+"\'"+", \'"+barrio+"\' , \'"+tipo+"\', "+llaveBarrio+")";
         m.insertarBarrio(consulta);
         
         
