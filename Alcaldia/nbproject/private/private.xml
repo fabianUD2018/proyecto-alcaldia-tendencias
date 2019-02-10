@@ -3,10 +3,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Tendencias/proyecto-alcaldia-tendencias/Alcaldia/src/java/clases/Persona.java</file>
-            <file>file:/C:/Tendencias/proyecto-alcaldia-tendencias/Alcaldia/web/GuardarPersonaEnFamilia.jsp</file>
-            <file>file:/C:/Tendencias/proyecto-alcaldia-tendencias/Alcaldia/src/java/clases/Modelo.java</file>
-            <file>file:/C:/Tendencias/proyecto-alcaldia-tendencias/Alcaldia/web/InsertarPersonaFamilia.jsp</file>
+            <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/web/barriosEstratos12.jsp</file>
+            <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/web/META-INF/context.xml</file>
+            <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/web/barriosIndustriales.jsp</file>
+            <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/web/barriosComerciales.jsp</file>
+            <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/web/header.jsp</file>
+            <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/web/InsercionInstituciones.jsp</file>
+            <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/src/java/clases/Adulto.java</file>
+            <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/web/insercionRutas.jsp</file>
+            <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/web/barriosResidenciales.jsp</file>
+            <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/web/GuardarEntidad.jsp</file>
+            <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/web/Familia.jsp</file>
+            <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/src/java/clases/Ruta.java</file>
+            <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/src/java/clases/Modelo.java</file>
+            <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/web/GuardarRuta.jsp</file>
+            <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/web/GuardarBarrio.jsp</file>
+            <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/src/java/clases/GestorBaseDatos.java</file>
+            <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/web/adulto.jsp</file>
+            <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/web/insercionPersonas.jsp</file>
+            <file>file:/C:/Users/luigi/Documents/GitHub/proyecto-alcaldia-tendencias/Alcaldia/web/insercionBarrios.jsp</file>
         </group>
     </open-files>
 </project-private>

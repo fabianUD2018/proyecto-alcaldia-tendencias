@@ -21,6 +21,7 @@ public class Modelo {
     private ArrayList<Persona> personas;
     private ArrayList<Enfermedad> listaE;
     private ArrayList<Institucion> insti;
+    private ArrayList<Ruta> rutas ;
     public Institucion m_Institucion;
     public Barrio m_Barrio;
     public Familia m_Familia;
@@ -34,13 +35,15 @@ public class Modelo {
         insti = new ArrayList();
         familia = new ArrayList();
         listaE = new ArrayList<>();
+        rutas = new ArrayList<>();
         db = GestorBaseDatos.obtenerGestor();
         db.realizaConexion();
         cargarEnfermedades();
         this.cargarTodasLasInstituciones();
         this.cargarTodasPersonas();
-
+        this.cargarTodosBarrio();
     }
+    
     
     public ArrayList<Barrio> getBarrios() {
         System.out.println("cantidad de barrios cargados: "+ barrios.size());
@@ -126,7 +129,7 @@ public class Modelo {
     public void cargarTodosBarrio() {
         this.barrios.clear();
         cargarBarriosN();
-        cargarBarriosIndustriales();
+        cargarBarriosIndustriales();     
         cargarBarriosEstrato12();
     }
     
@@ -174,10 +177,12 @@ public class Modelo {
         this.cargarGuarderias();
         this.cargarPlanteles();
     }
+      
     public void cargarBarriosEstrato12() {
+        cargarRutas();
         ResultSet st = db.read("select * from barrio , b_bajo  where barrio.id_barrio=b_bajo.id_barrio");
         ResultSet rt;
-        ArrayList<Ruta> rutas = new ArrayList<>();
+        
         try {
             while (st.next()) {
                 rt = db.read("select * from rutas,bajo_rutas, b_bajo, barrio  where rutas.id_ruta=bajo_rutas.id_ruta and b_bajo.id_b_bajo=bajo_rutas.id_b_bajo and b_bajo.id_barrio=barrio.id_barrio and barrio.id_barrio=" + st.getString("id_barrio"));
@@ -187,24 +192,16 @@ public class Modelo {
                 String tipo = st.getString("tipo");
                 BEstratoInferior aTemp = new BEstratoInferior(nombre, estrato, area, tipo);
                 while (rt.next()) {
-                    boolean existeRuta = false;
                     int posicionRuta=0;
                     int codigoRuta = rt.getInt("id_ruta");
-                    for (int i = 0; i < rutas.size(); i++) {
-                        if (codigoRuta == rutas.get(i).getNombreRuta()) {
-                            existeRuta = true;
+
+                    for (int i = 0; i < getRutas().size(); i++) {
+                        if (codigoRuta == getRutas().get(i).getNombreRuta()) {
                             posicionRuta = i;
                         }
                     }
-                    if (!existeRuta) {
-                        String nombreRuta = rt.getString("des_ruta");                        
-                        Ruta rut = new Ruta(codigoRuta, nombreRuta);                        
-                        rutas.add(rut);
-                        aTemp.añadirRuta(rut);
-                    } else {
-                        aTemp.añadirRuta(rutas.get(posicionRuta));
-                    }
-                    existeRuta = false;
+                    aTemp.añadirRuta(getRutas().get(posicionRuta));
+                    
                 }
                 barrios.add(aTemp);
                 //Falta guardarle las familias        
@@ -213,6 +210,22 @@ public class Modelo {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    }
+    
+    public void cargarRutas(){
+        rutas.clear();
+        try {
+            ResultSet st = db.read("select * from rutas");
+            while (st.next()){
+                String nombreRuta = st.getString("des_ruta");
+                int codigoRuta = st.getInt("id_ruta");
+                
+                Ruta rut = new Ruta(codigoRuta, nombreRuta);
+                rutas.add(rut);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void cargarPersonasAdultas() {
@@ -266,6 +279,10 @@ public class Modelo {
     
     public void insertarBarrio(String sql) {
         this.db.create(sql);
+    }
+    
+    public ResultSet consultarIDRuta (String sql){
+        return this.db.read(sql);
     }
 
 
@@ -533,6 +550,13 @@ public class Modelo {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
             return "Sin Nombre";
         }
+    }
+
+    /**
+     * @return the rutas
+     */
+    public ArrayList<Ruta> getRutas() {
+        return rutas;
     }
     
     

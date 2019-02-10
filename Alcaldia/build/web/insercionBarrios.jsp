@@ -33,14 +33,25 @@
                             </div>
                             <div class ="form-group">
                                 <label for ="estrato"> Estrato </label>
-                                <input class ="form-control"  name ="estrato" type ="text" >
+                                <select class ="form-control"  name ="estrato" type ="text" >
+                                    <option >1</option>
+                                    <option >2</option>
+                                    <option >3</option>
+                                    <option >4</option>
+                                    <option >5</option>
+                                    <option >6</option>
+                                </select>
                             </div>
                             <div class ="form-group">
                                 <label for ="area"> Area </label>
                                 <input class ="form-control"  name ="area" type ="text" >
                             </div> <div class ="form-group">
                                 <label for ="tipo"> Tipo </label>
-                                <input class ="form-control"  name ="tipo" type ="text" >
+                                <select class ="form-control"  name ="tipo" type ="text" >
+                                    <option >Residencial</option>
+                                    <option >Industrial</option>
+                                    <option >Comercial</option>
+                                </select>
                             </div> 
                             <input class ="btn btn-primary col" type ="submit" name ="accion" value ="Guardar barrio"> 
                         </form>

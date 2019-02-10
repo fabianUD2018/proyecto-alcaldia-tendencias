@@ -5,6 +5,7 @@
 --%>
 
 <%@page import="clases.Modelo"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <html>
@@ -21,13 +22,28 @@
         String estrato= (String) request.getParameter("estrato");
         String area = (String) request.getParameter("area");
         String tipo= (String) request.getParameter("tipo");
+        Modelo m = (Modelo)application.getAttribute("modelo"); 
+        int llaveBarrio = m.obtenerIndice("barrio"); 
+        llaveBarrio++;
         
-        String consulta ="INSERT INTO barrio VALUES ("+area+", "+"\'"+estrato+"\'"+", \'"+barrio+"\' , \'"+tipo+"\', "+1+")";
-        
-        Modelo m = (Modelo)application.getAttribute("modelo");
+        String consulta ="INSERT INTO barrio VALUES ("+area+", "+"\'"+estrato+"\'"+", \'"+barrio+"\' , \'"+tipo+"\', "+llaveBarrio+")";
         m.insertarBarrio(consulta);
         
-        response.sendRedirect("barrios.jsp");
+        
+        if (Integer.parseInt(estrato)<3){
+            int llaveEstrato = m.obtenerIndice("b_bajo"); 
+            llaveEstrato++;
+            consulta ="INSERT INTO b_bajo VALUES ("+llaveEstrato+","+llaveBarrio+")";
+            m.insertarBarrio(consulta);  
+        }
+
+        if(tipo.equals("Industrial")){
+            int llaveIndustrial = m.obtenerIndice("b_industrial"); 
+            llaveIndustrial++;  
+            consulta ="INSERT INTO b_industrial VALUES ("+llaveIndustrial+","+llaveBarrio+")";
+            m.insertarBarrio(consulta);  
+        }
+        response.sendRedirect("barriosComerciales.jsp");
     }
         %>
 
